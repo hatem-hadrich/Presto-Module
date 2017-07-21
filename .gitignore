@@ -2,4 +2,9 @@ favicon_module/node_modules/*
 invoicetermes_module/node_modules/*
 SEOImage_module/node_modules/*
 prestafraud_module/node_modules/*
+gadwords_module/node_modules/*
+ps_googleanalytics_module/node_modules/*
+blockblog_module/node_modules/*
+pspixel_module/node_modules/*
+pscookiebanner_module/node_modules/*
 .idea/*
