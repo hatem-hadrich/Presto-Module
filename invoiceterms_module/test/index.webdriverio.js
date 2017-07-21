@@ -39,7 +39,7 @@ describe('Allscenario', function(){
       require('./scenario/FO/buy_product.webdriverio');
 	  require('./scenario/BO/check_edited_invoiceterms.webdriverio');
 
-    // uninstall the faviconotification module
+    // uninstall the invoiceterms module
     // require('./scenario/BO/uninstall_module.js');
 
 });
