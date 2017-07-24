@@ -6,6 +6,7 @@ var argv = require('minimist')(process.argv.slice(2));
 
 global.date_time = new Date().getTime();
 global.URL = argv.URL;
+global.module_tech_name = 'gadwords';
 global.browser = argv.browser;
 global.saucelabs = argv.SAUCELABS;
 global._projectdir = path.join(__dirname, '..', '..');
@@ -101,7 +102,7 @@ module.exports = {
 		close_sf_toolbar:'//a[@class="hide-button"]',
 		module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
 		install_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
-		configure_module_btn: '//*[@id="modules-list-container-all"]/div[1]/div[1]/div[1]/div[5]/div[2]/form[@class="btn-group"]/button',
+		configure_module_btn: '//*[@id="modules-list-container-all"]/div[1]/div/div/div[5]/div[2]/form/button',
 		uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle light-button"]',
 		uninstall_module_btn: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="dropdown-item module_action_menu_uninstall"]',
 		modal_confirm_uninstall: '//*[@id="module-modal-confirm-' + module_tech_name + '-uninstall" and @class="modal modal-vcenter fade in"]//a[@class="btn btn-primary uppercase module_action_modal_uninstall"]',

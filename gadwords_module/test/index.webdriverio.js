@@ -17,8 +17,8 @@ describe('Allscenario', function () {
             .call(done);
     });
 
-    // Test case n°1 = Check gadwords in Back Office
-    require('./scenario/BO/gadwords.webdriverio');
+    // Test case n°1 = Check configuration module in Back Office
+    require('./scenario/BO/configuration.webdriverio');
 
 
 });

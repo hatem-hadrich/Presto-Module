@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('Test case n°1 : Check config of module google adwords', function () {
+describe('Test case n°1 : Check configuration of google analytics in BO', function () {
     common.initMocha.call(this);
 
     before(function (done) {
@@ -35,7 +35,7 @@ describe('Test case n°1 : Check config of module google adwords', function () {
 
         it('should go to the module', function (done) {
             this.client
-                .setValue(this.selector.modules_search, "gadwords")
+                .setValue(this.selector.modules_search, global.module_tech_name)
                 .click(this.selector.modules_search_button)
                 .waitForExist(this.selector.module_tech_name, 90000)
                 .call(done);
@@ -45,39 +45,44 @@ describe('Test case n°1 : Check config of module google adwords', function () {
             this.client
                 .waitForExist(this.selector.module_tech_name, 90000)
                 .click(this.selector.configure_module_btn)
-                .waitForExist(this.selector.gadwords_voucher, 90000)
-                .pause(2000)
                 .call(done);
         });
 
-        it('should check Google AdWords promotional code', function (done) {
+        it('should enter Google Analytics Tracking ID', function (done) {
             this.client
-                .waitForExist(this.selector.gadwords_voucher, 90000)
-                .getText(this.selector.gadwords_voucher).then(function(text) {
-                    if (text == "") {
-                        done(new Error("Google AdWords promotional code is empty"));
-                    }
+                .waitForExist(this.selector.googleanalytics_tracking_id, 90000)
+                .setValue(this.selector.googleanalytics_tracking_id, global.tracking_id)
+                .call(done);
+        });
+
+        it('should Enable User ID tracking', function (done) {
+            this.client
+                .waitForExist(this.selector.enable_user_id_tracking, 90000)
+                .click(this.selector.enable_user_id_tracking, 90000)
+                .call(done);
+        });
+
+        it('should click on button Save ', function (done) {
+            this.client
+                .waitForExist(this.selector.googleanalytics_submit_btn, 90000)
+                .click(this.selector.googleanalytics_submit_btn, 90000)
+                .call(done);
+        });
+
+        it('should check the account ID', function (done) {
+            this.client
+                .waitForExist(this.selector.account_id_green_block, 90000)
+                .getText(this.selector.account_id_green_block).then(function(text) {
+                    should(text).be.equal('×\nAccount ID updated successfully');
                 })
                 .call(done);
         });
 
-        it('should click on <button "Start your campaign now with your promotional code">', function (done) {
+        it('should check the user ID', function (done) {
             this.client
-                .waitForExist(this.selector.gadwords_voucher, 90000)
-                .click(this.selector.gadwords_start_btn, 90000)
-                .call(done);
-        });
-
-        it('should check the url target', function (done) {
-            this.client
-                .pause(2000)
-                .getAttribute(this.selector.gadwords_start_btn, 'href').then(function (url) {
-                    var currentUrl = url;
-                    should(currentUrl).be.equal("http://www.google.co.uk/ads/get/prestashop75/index.html");
-                })
-                .getAttribute(this.selector.gadwords_start_btn, 'target').then(function (target) {
-                    var path = target;
-                    should(path).be.equal("_blank");
+                .waitForExist(this.selector.user_id_green_block, 90000)
+                .getText(this.selector.user_id_green_block).then(function(text) {
+                    should(text).be.equal('×\nSettings for User ID updated successfully');
                 })
                 .call(done);
         });
