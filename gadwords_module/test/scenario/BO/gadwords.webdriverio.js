@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('Check config of module google adwords', function () {
+describe('Test case n°1 : Check config of module google adwords', function () {
     common.initMocha.call(this);
 
     before(function (done) {
@@ -12,7 +12,6 @@ describe('Check config of module google adwords', function () {
     });
 
     after(common.after);
-
 
     describe('Log in in Back Office', function (done) {
         it('should log in successfully in BO', function (done) {
@@ -36,7 +35,7 @@ describe('Check config of module google adwords', function () {
 
         it('should go to the module', function (done) {
             this.client
-                .setValue(this.selector.modules_search, module_tech_name)
+                .setValue(this.selector.modules_search, "gadwords")
                 .click(this.selector.modules_search_button)
                 .waitForExist(this.selector.module_tech_name, 90000)
                 .call(done);
@@ -70,16 +69,15 @@ describe('Check config of module google adwords', function () {
         });
 
         it('should check the url target', function (done) {
-
             this.client
                 .pause(2000)
                 .getAttribute(this.selector.gadwords_start_btn, 'href').then(function (url) {
                     var currentUrl = url;
-                    should(currentUrl).be.equal("http://www.google.co.uk/ads/get/prestashop75/index.html")
+                    should(currentUrl).be.equal("http://www.google.co.uk/ads/get/prestashop75/index.html");
                 })
                 .getAttribute(this.selector.gadwords_start_btn, 'target').then(function (target) {
                     var path = target;
-                    should(path).be.equal("_blank")
+                    should(path).be.equal("_blank");
                 })
                 .call(done);
         });
@@ -87,7 +85,6 @@ describe('Check config of module google adwords', function () {
 
     describe('Log out in Back Office', function (done) {
         it('should log out successfully in BO', function (done) {
-            global.fctname = this.test.title;
             this.client
                 .signoutBO()
                 .call(done);
