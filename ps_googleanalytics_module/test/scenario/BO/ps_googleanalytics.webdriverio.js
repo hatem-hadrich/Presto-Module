@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('Check config of module google analytics', function () {
+describe('Test case n°1 : Check configuration of google analytics in BO', function () {
     common.initMocha.call(this);
 
     before(function (done) {
@@ -12,7 +12,6 @@ describe('Check config of module google analytics', function () {
     });
 
     after(common.after);
-
 
     describe('Log in in Back Office', function (done) {
         it('should log in successfully in BO', function (done) {
@@ -36,7 +35,7 @@ describe('Check config of module google analytics', function () {
 
         it('should go to the module', function (done) {
             this.client
-                .setValue(this.selector.modules_search, module_tech_name)
+                .setValue(this.selector.modules_search, globals.module_tech_name)
                 .click(this.selector.modules_search_button)
                 .waitForExist(this.selector.module_tech_name, 90000)
                 .call(done);
@@ -54,7 +53,7 @@ describe('Check config of module google analytics', function () {
         it('should enter Google Analytics Tracking ID', function (done) {
             this.client
                 .waitForExist(this.selector.googleanalytics_tracking_id, 90000)
-                .setValue(this.selector.googleanalytics_tracking_id, tracking_id)
+                .setValue(this.selector.googleanalytics_tracking_id, globals.tracking_id)
                 .call(done);
         });
 
@@ -73,25 +72,19 @@ describe('Check config of module google analytics', function () {
         });
 
         it('should check the account ID', function (done) {
-
             this.client
                 .waitForExist(this.selector.account_id_green_block, 90000)
                 .getText(this.selector.account_id_green_block).then(function(text) {
-                    should(text).be.equal(""
-                +'×\nAccount ID updated successfully'+
-                "")
+                    should(text).be.equal('×\nAccount ID updated successfully');
                 })
                 .call(done);
         });
 
         it('should check the user ID', function (done) {
-
             this.client
                 .waitForExist(this.selector.user_id_green_block, 90000)
                 .getText(this.selector.user_id_green_block).then(function(text) {
-                    should(text).be.equal(""
-                        +'×\nSettings for User ID updated successfully'+
-                        "")
+                    should(text).be.equal('×\nSettings for User ID updated successfully');
                 })
                 .call(done);
         });
@@ -99,7 +92,6 @@ describe('Check config of module google analytics', function () {
 
     describe('Log out in Back Office', function (done) {
         it('should log out successfully in BO', function (done) {
-            global.fctname = this.test.title;
             this.client
                 .signoutBO()
                 .call(done);
