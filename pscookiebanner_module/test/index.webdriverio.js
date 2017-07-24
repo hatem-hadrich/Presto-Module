@@ -17,10 +17,11 @@ describe('Allscenario', function () {
             .call(done);
     });
 
-    // Test case n°1 = Configure the module cookie banner in Back Office
-    require('./scenario/BO/configure_module');
-    require('./scenario/FO/check_cookie_banner.webdriverio');
-    //require('./scenario/BO/configure1_module');
-    //require('./scenario/FO/check_cookie_banner1.webdriverio');
+    // Test case n°1.1 = Configure the module cookie banner in Back Office
+    require('./scenario/BO/default_configuration.webdriverio.js');
+    require('./scenario/FO/check_default_cookie_banner.webdriverio.js');
+    // Test case n°2.1 = Configure the module cookie banner in Back Office
+    require('./scenario/BO/edit_configuration.webdriverio.js');
+    require('./scenario/FO/check_edited_cookie_banner.webdriverio.js');
 
 });
