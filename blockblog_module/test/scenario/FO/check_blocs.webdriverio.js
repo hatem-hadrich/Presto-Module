@@ -5,7 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 
 
 
-describe('Check blogs of blog pro module', function(){
+describe('Test case n°1 : Check blogs of blog pro module', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -39,7 +39,7 @@ describe('Check blogs of blog pro module', function(){
 				.click(this.selector.home_logo_url)
 				.waitForExist(this.selector.categories_blog, 90000)
                 .getText(this.selector.categories_blog).then(function(text) {
-					should(text).be.equal("There are not Categories yet.")
+					should(text).be.equal("There are not Categories yet.");
 				})
 			    .call(done);
 		});
@@ -48,7 +48,7 @@ describe('Check blogs of blog pro module', function(){
 			this.client
 				.waitForExist(this.selector.posts_blog, 90000)
                 .getText(this.selector.posts_blog).then(function(text) {
-					should(text).be.equal("There are not Posts yet.")
+					should(text).be.equal("There are not Posts yet.");
 				})
 			    .call(done);
 		});
@@ -57,7 +57,7 @@ describe('Check blogs of blog pro module', function(){
 			this.client
 				.waitForExist(this.selector.comments_blog, 90000)
                 .getText(this.selector.comments_blog).then(function(text) {
-					should(text).be.equal("There are not comments yet.")
+					should(text).be.equal("There are not comments yet.");
 				})
 			    .call(done);
 		});
@@ -66,7 +66,7 @@ describe('Check blogs of blog pro module', function(){
 			this.client
 				.waitForExist(this.selector.archives_blog, 90000)
                 .getText(this.selector.archives_blog).then(function(text) {
-					should(text).be.equal("There are not Archives yet.")
+					should(text).be.equal("There are not Archives yet.");
 				})
 			    .call(done);
 		});

@@ -24,7 +24,12 @@ Required modules to install using npm are:
 
 b)	How to launch tests
 
--	First, you need to start selenium-standalone
+-	First, you need to create an account in captcha-solutions
+-   Go to the folder captcha-solutions-1.0.8 > js the open the file background.js and change the value of key and secret, the same on the function receiveMessage(...)
+-   Exemple : key='732277de60503200f7e2ffad308ca8d5';
+              secret='854cf3b0';
+
+-   Second, you need to start selenium-standalone
 -	Go to the folder of the version you want to test (in \test\itg, go into folder 1.6 or 1.7) and execute one of the following lines:
 
 -        Launch tests without module installation :

@@ -124,6 +124,7 @@ module.exports = {
 
         blog_btn:'//*[@id="subtab-AdminBlockblogtest"]/a',
         posts_btn:'//*[@id="subtab-AdminBlockblogposts"]/a',
+        comments_btn:'//*[@id="subtab-AdminBlockblogcomments"]/a',
         add_new_category_btn:'//*[@id="toolbar-nav"]/li[1]/a',
         add_new_post_btn:'//*[@id="toolbar-nav"]/li[1]/a',
         category_title:'//*[@id="category_title_1"]',
@@ -133,6 +134,8 @@ module.exports = {
         category_description:'//*[@id="category_seodescription_1"]',
         post_description:'//*[@id="post_seodescription_1"]', //*[@id="post_seodescription_1"]
         post_source_code_content_btn:'//*[@id="mce_12"]/button',//*[@id="tinymce"]/p
+        post_content_textarea:'//textarea[@class="mce-textbox mce-multiline mce-first mce-last mce-abs-layout-item"]',
+        post_content_btn:'//div[@class="mce-widget mce-btn mce-primary mce-first mce-abs-layout-item"]/button',
         post_select_category_checkbox:'//*[@id="fieldset_0"]/div[2]/div[7]/div/div/table/tbody/tr/td[1]/input',
         post_select_category1_checkbox:'//*[@id="fieldset_0"]/div[2]/div[7]/div/div/table/tbody/tr[2]/td[1]/input',
         post_select_category2_checkbox:'//*[@id="fieldset_0"]/div[2]/div[7]/div/div/table/tbody/tr[3]/td[1]/input',
@@ -158,6 +161,7 @@ module.exports = {
         category_filter_title:'//*[@id="form-blog_category"]/div/div[2]/table/thead/tr[2]/th[3]/input',
         category_filter_search_btn:'//*[@id="submitFilterButtonblog_category"]',
         categories_number:'//*[@id="form-blog_category"]/div/div[1]/span[1]',
+        comment_enable_status:'//*[@id="form-blog_comments"]/div/div[2]/table/tbody/tr/td[7]/span/span',
 
 	//FO
 		access_loginFO:'div.user-info > a',
@@ -237,6 +241,9 @@ module.exports = {
         nbr_pages_in_categories: '//*[@id="content"]/div/div[2]/div/div/span[2]/a',
         nbr_posts: '//*[@id="content"]/div/div[1]/div/ul[1]/li/strong',
         nbr_pages_in_posts: '//*[@id="content"]/div/div[2]/div/div/span[2]/a',
+        comment_name_input:'//*[@id="name-blockblog"]',
+        comment_email_input:'//*[@id="email-blockblog"]',
+        comment_comment_textarea:'//*[@id="comment-blockblog"]',
 
 	},
     shouldExist: function(err, existing) {

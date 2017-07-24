@@ -5,7 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 
 
 
-describe('Add new comment to the previous post in FO', function(){
+describe('Test case n°4.1 : Add new comment to the previous post in FO', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -54,51 +54,28 @@ describe('Add new comment to the previous post in FO', function(){
         it('should enter the Name ', function(done){
 		    global.fctname= this.test.title;
 			this.client
-			    .waitForExist('//*[@id="name-blockblog"]', 90000)
-				.setValue('//*[@id="name-blockblog"]', "test")
+			    .waitForExist(this.selector.comment_name_input, 90000)
+				.setValue(this.selector.comment_name_input, "test")
 				.pause(2000)
 			    .call(done);
 		});
         it('should enter the Email ', function(done){
 		    global.fctname= this.test.title;
             this.client
-                .waitForExist('//*[@id="email-blockblog"]', 90000)
-                .setValue('//*[@id="email-blockblog"]', "test.test@test.com")
+                .waitForExist(this.selector.comment_email_input, 90000)
+                .setValue(this.selector.comment_email_input, "test.test@test.com")
                 .pause(2000)
                 .call(done);
 		});
         it('should enter the Comment ', function(done){
             this.client
-                .waitForExist('//*[@id="comment-blockblog"]', 90000)
-                .setValue('//*[@id="comment-blockblog"]', "test")
+                .waitForExist(this.selector.comment_comment_textarea, 90000)
+                .setValue(this.selector.comment_comment_textarea, "test")
                 .pause(2000)
                 .call(done);
 		});
-        // it('should enter the Captcha-code ', function(done){
-         //    // tesseracts.process('http://prestashop-dev.com/modules/blockblog/captcha.php',function(err, text) {
-         //    //     if(err) {
-         //    //         console.error(err);
-         //    //     } else {
-         //    //         console.log(text);
-         //    //     }
-         //    // });
-         //    // Tesseract.recognize('/projet/PrestaShop/captcha.png')
-         //    //     .then(function(result){console.log('result is: ', result)})
-         //    // textract.fromUrl(url, function( error, text ) {console.log('result is: ', text)})
-         //    this.client
-         //        .waitForExist('//*[@id="captcha-blockblog"]', 90000)
-         //        .setValue('//*[@id="captcha-blockblog"]', "")
-         //        .pause(2000)
-		// 		.click(this.selector.post_blog_comment_btn)
-		// 		.pause(2000)
-		// 		.waitForExist(this.selector.post_blog_comment_succes, 90000)
-		// 		.getText(this.selector.post_blog_comment_succes).then(function(succes_text){
-         //        	should(succes_text).be.equal("\nYour comment  has been sent successfully. Thanks for comment!")
-		// 		})
-         //        .call(done);
-		// });
 
-        it("should click on <button 'Comment'> ", function(done){
+        it("should click on button Comment ", function(done){
             this.client
 				.pause(2000)
                 .waitForExist(this.selector.post_blog_comment_btn, 90000)
@@ -106,6 +83,18 @@ describe('Add new comment to the previous post in FO', function(){
                 .pause(2000)
                 .call(done);
         });
+
+        it("should check the green block displayed ", function(done){
+            this.client
+				.pause(2000)
+                .waitForExist(this.selector.post_blog_comment_succes, 90000)
+                .getText(this.selector.post_blog_comment_succes).then(function (success) {
+					should(success).be.equal("Your comment has been sent successfully. Thanks for comment!");
+				})
+                .pause(2000)
+                .call(done);
+        });
+
 	});
 		
 	describe('Log out in Front Office', function(done){

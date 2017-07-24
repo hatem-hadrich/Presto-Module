@@ -5,7 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 
 
 
-describe('Check the previous category in FO', function(){
+describe('Test case n°5.8 : Check the previous category in FO', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
@@ -41,14 +41,14 @@ describe('Check the previous category in FO', function(){
 				.pause(2000)
 			    .call(done);
 		});
-        it('should click on <button "view all categories">', function(done){
+        it('should click on button view all categories ', function(done){
 		    global.fctname= this.test.title;
 			this.client
 				.click(this.selector.view_all_categories_btn)
 				.waitForExist(this.selector.nbr_categories, 90000)
 				.pause(2000)
 				.getText(this.selector.nbr_categories).then(function (value) {
-					should(value).be.equal("Categories ( 4 )")
+					should(value).be.equal("Categories ( 4 )");
 				})
 			    .call(done);
 		});
@@ -60,19 +60,19 @@ describe('Check the previous category in FO', function(){
 				.getText(this.selector.nbr_pages_in_categories).then(function (number) {
 					var nbr = parseInt(number);
 					if(nbr != 2){
-						done(new Error("you don't have 2 pages"))
+						done(new Error("you don't have 2 pages"));
 					}
 				})
 			    .call(done);
 		});
-        it('should click on <button "view all posts">', function(done){
+        it('should click on button view all posts ', function(done){
             global.fctname= this.test.title;
             this.client
                 .click(this.selector.view_all_posts_btn)
                 .waitForExist(this.selector.nbr_posts, 90000)
                 .pause(2000)
                 .getText(this.selector.nbr_categories).then(function (value) {
-					should(value).be.equal("Posts ( 4 )")
+					should(value).be.equal("Posts ( 4 )");
 				})
                 .call(done);
         });
@@ -84,7 +84,7 @@ describe('Check the previous category in FO', function(){
                 .getText(this.selector.nbr_pages_in_posts).then(function (number) {
                 var nbr = parseInt(number);
                 if(nbr != 2){
-                    done(new Error("you don't have 2 pages"))
+                    done(new Error("you don't have 2 pages"));
                 }
             })
                 .call(done);

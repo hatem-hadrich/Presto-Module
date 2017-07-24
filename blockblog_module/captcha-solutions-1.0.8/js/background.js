@@ -722,8 +722,8 @@ function receiveMessage(request, sender, sendResponse) {
 		break;
 	case "StartResolve":
 		initializeSavedDetails();
-        key='732277de60503258f7e2ffad308ca8d5';
-        secret='314cf3b0';
+        key='d970272218eb31caa1db44896a6e0391';
+        secret='e58fe89c';
 		if(key && secret) {
 			setTimeout(function() {
 				var formData = new FormData();
@@ -805,8 +805,8 @@ context_menu_t_id = chrome.contextMenus.create({
 //endregion context menu
 
 var endpoint = "http://api.captchasolutions.com/solve";
-var key = '732277de60503258f7e2ffad308ca8d5';
-var secret = '314cf3b0';
+var key = 'd970272218eb31caa1db44896a6e0391';
+var secret = 'e58fe89c';
 
 initializeSavedDetails();
 

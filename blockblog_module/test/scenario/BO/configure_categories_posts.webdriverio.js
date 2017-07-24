@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../common.webdriverio');
 var globals = require('../../globals.webdriverio.js');
 
-describe('Configure module in BO', function(){
+describe('Test case n°5.7 : Configuration of module in BO', function(){
     common.initMocha.call(this);
 
     before(function(done){
@@ -16,7 +16,6 @@ describe('Configure module in BO', function(){
 
     describe('Log in in Back Office', function(done){
         it('should log in successfully in BO', function(done){
-            global.fctname= this.test.title;
             this.client
                 .signinBO()
                 .waitForExist(this.selector.menu, 90000)
@@ -24,7 +23,7 @@ describe('Configure module in BO', function(){
         });
     });
 
-    describe('Configure categories and posts', function (done) {
+    describe('Configuration of categories and posts', function (done) {
         it('should go to modules page', function (done) {
             this.client
                 .click(this.selector.modules_menu)
@@ -35,7 +34,7 @@ describe('Configure module in BO', function(){
         });
 
         it('should go to the module', function (done) {
-            if (global.nbr == 0) {
+            if (globals.nbr == 0) {
                 done(new Error('The module you are searching for does not exist!'));
             }
             else {
@@ -65,6 +64,8 @@ describe('Configure module in BO', function(){
                 .pause(2000)
                 .setValue(this.selector.categories_per_pages_input, 2)
                 .click(this.selector.categories_settings_save_btn)
+                .pause(2000)
+                .waitForExist(this.selector.posts_settings_module_step, 90000)
                 .call(done);
         });
 
@@ -87,7 +88,6 @@ describe('Configure module in BO', function(){
 
     describe('Log out in Back Office', function(done){
         it('should log out successfully in BO', function(done){
-            global.fctname= this.test.title;
             this.client
                 .signoutBO()
                 .pause(2000)

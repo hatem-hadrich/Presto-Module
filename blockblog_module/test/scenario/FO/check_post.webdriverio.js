@@ -5,7 +5,7 @@ var globals = require('../../globals.webdriverio.js');
 
 
 
-describe('Check the previous post in FO', function(){
+describe('Test case n°3.2 : Check the previous post in FO', function(){
 	common.initMocha.call(this);
 	
 	before(function(done){
