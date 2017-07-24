@@ -17,6 +17,6 @@ describe('Allscenario', function () {
             .call(done);
     });
 
-    // Test case n°1 : configure the module Pixel Facebook
-    require('./scenario/BO/configure_module');
+    // Test case n°1 : Configuration module Pixel Facebook in back office
+    require('./scenario/BO/configuration.webdriverio.js');
 });

@@ -14,7 +14,6 @@ describe('The Install of a Module', function () {
 
     after(common.after);
 
-
     describe('Log in in Back Office', function (done) {
         it('should log in successfully in BO', function (done) {
             this.client
@@ -23,7 +22,6 @@ describe('The Install of a Module', function () {
                 .call(done);
         });
     });
-
 
     describe('Install module', function (done) {
         it('should go to modules page', function (done) {
@@ -65,7 +63,7 @@ describe('The Install of a Module', function () {
             this.client
                 .waitForExist(this.selector.configuration_step, 90000)
                 .click(this.selector.configuration_step)
-                .call(done)
+                .call(done);
         });
 
         it('Should enter the Facebook Pixel ID ', function (done) {
@@ -73,25 +71,23 @@ describe('The Install of a Module', function () {
                 .waitForExist(this.selector.configuration_pixel_id_input, 90000)
                 .setValue(this.selector.configuration_pixel_id_input, "239543053231383")
                 .pause(2000)
-                .call(done)
+                .call(done);
         });
 
-        it('Should click on <button "Save"> ', function (done) {
+        it('Should click on button Save ', function (done) {
             this.client
                 .waitForExist(this.selector.configuration_save_btn, 90000)
                 .click(this.selector.configuration_save_btn)
                 .pause(2000)
-                .call(done)
+                .call(done);
         });
 
         it('Should check the green bloc ', function (done) {
             this.client
                 .waitForExist(this.selector.configuration_green_validation, 90000)
                 .getText(this.selector.configuration_green_validation).then(function(text) {
-                should(text).be.equal(""
-                    +'×\nYour ID Pixel have been updated.'+
-                    "")
-            })
+                    should(text).be.equal('×\nYour ID Pixel have been updated.');
+                })
                 .call(done);
         });
     });

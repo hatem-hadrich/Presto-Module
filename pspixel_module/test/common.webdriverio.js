@@ -32,10 +32,10 @@ function initCommands(client) {
     client.addCommand('signinBO', function (cb) {
         this.selector = globals.selector;
         client
-            .url('http://' + URL + '/backoffice/')
+            .url('http://' + URL + '/admin-dev/')
             .waitForExist(this.selector.login, 90000)
-            .setValue(this.selector.login, 'basma.yangui@prestashop.com')
-            .setValue(this.selector.password, 'barbar2017')
+            .setValue(this.selector.login, 'demo@prestashop.com')
+            .setValue(this.selector.password, 'prestashop_demo')
             .click(this.selector.login_btn)
             .waitForExist(this.selector.menu, 90000)
             .call(cb);

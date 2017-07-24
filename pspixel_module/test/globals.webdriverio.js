@@ -103,7 +103,7 @@ module.exports = {
 		configuration_step: '//*[@id="modulecontent"]/div[1]/div[1]/a[2]',
 		configuration_pixel_id_input: '//*[@id="PS_PIXEL_ID"]',
 		configuration_save_btn: '//*[@id="wizard"]/div[3]/div/button',
-		configuration_green_validation: '//*[@id="content"]/div[4]/div[@class="module_confirmation conf confirm alert alert-success"]',
+		configuration_green_validation: '//*[@id="content"]/div[5]/div[@class="module_confirmation conf confirm alert alert-success"]',
 
 
 	},
