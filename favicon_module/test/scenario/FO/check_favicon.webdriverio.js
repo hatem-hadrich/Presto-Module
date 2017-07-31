@@ -36,9 +36,8 @@ describe('Test Case n°1 : Check the favicon', function() {
 				this.client
 					.pause(3000)
 					.getAttribute(this.selector.favicon_empty_cart, "href").then(function (img) {
-					global.favicon_empty_cart_val = img;
-					console.log("+++++++++++++++++++++++++++++++ 111111111111111111"+global.favicon_empty_cart_val);
-				})
+						global.favicon_empty_cart_val = img;
+					})
 				.pause(3000)
 				.call(done);
 		});
@@ -69,10 +68,9 @@ describe('Test Case n°1 : Check the favicon', function() {
 			global.favicon_filled_cart = "";
 			this.client
 				.getAttribute(this.selector.favicon_filled_cart, "href").then(function (img) {
-				 global.favicon_filled_cart_val = img;
-				 console.log(global.favicon_filled_cart_val+'+++++++++++++++'+global.favicon_empty_cart_val)
-				 should(global.favicon_filled_cart_val).not.be.equal(global.favicon_empty_cart_val);
-			})
+					 global.favicon_filled_cart_val = img;
+					 should(global.favicon_filled_cart_val).not.be.equal(global.favicon_empty_cart_val);
+				})
 				.pause(3000)
 				.call(done);
 		});
