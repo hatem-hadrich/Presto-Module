@@ -10,6 +10,7 @@ global.email = argv.EMAIL;
 global.password = argv.PWD;
 global.module_tech_name = 'faviconotification';
 global.module_tech_name_prestafraud = 'prestafraud';
+global.module_tech_name_socialConnect = 'fbloginblock';
 global.browser = argv.browser;
 global.saucelabs = argv.SAUCELABS;
 global._projectdir = path.join(__dirname, '..', '..');
@@ -74,6 +75,14 @@ module.exports = {
                 enable_module_button: '[class="dropdown-item module_action_menu_enable"]'
             },
 
+            //Customer page selectors
+            CustomersPage: {
+                number_of_customer_found: '',
+                customer_subtab: '#subtab-AdminParentCustomer',
+                customer_address_email_input: '//*[@id="form-customer"]/div/div[2]/table/thead/tr[2]/th[7]/input',
+                customer_search_button: '#submitFilterButtoncustomer',
+            },
+
             //Upela module selectorl
             UpelaModulePage:{
                 production_mode_button:'//*[@id="fieldset_0"]/div[1]/div/div/span/label[1]',
@@ -110,7 +119,7 @@ module.exports = {
                 setting_subtab:'//*[@id="settings_form"]/div/div/div/form/div[3]/div[1]/div/button',
                 shop_creation_button:'//*[@id="settings_form"]/div[2]/div/div/div/div/div/a',
                 success_panel:'//*[@id="content"]/div[4]',
-                success_created_shop:'//*[@id="content"]/div[5]',
+                success_created_shop:'//*[@id="content"]/div[5]'
 
             },
 
@@ -134,6 +143,155 @@ module.exports = {
                 orders_form: '#form-order',
                 first_order:'//*[@id="form-order"]/div/div[2]/table/tbody/tr[1]/td[12]/div/a',
                 prestafraud_legand:'//*[@id="content"]/div[5]/div/fieldset/legend'
+            },
+            //@TODO
+            Facebook: {
+
+            },
+            Twitter: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[5]/img',
+                config_button: '//*[@id="navtabs16"]/li[5]/a',
+                developers_link: '//*[@id="twitter"]/div/div/fieldset/div[3]/a',
+                website_field_input: '//*[@id="twitter"]/div/div/fieldset/div[8]/input',
+                callback_field_input: '//*[@id="twitter"]/div/div/fieldset/div[9]/input',
+                customer_key_input: '//*[@id="twitterconskey"]',
+                customer_secret_input: '//*[@id="twitterconssecret"]',
+                save_button: '//*[@id="module_form_submit_btn_19"]'
+            },
+            //@TODO
+            Amazon: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[6]/a',
+                // developers_link: '//*[@id="twitter"]/div/div/fieldset/div[3]/a',
+                // website_field_input: '//*[@id="twitter"]/div/div/fieldset/div[8]/input',
+                // callback_field_input: '//*[@id="twitter"]/div/div/fieldset/div[9]/input',
+                // customer_key_input: '//*[@id="twitterconskey"]',
+                // customer_secret_input: '//*[@id="twitterconssecret"]',
+                // save_button: '//*[@id="module_form_submit_btn_19"]',
+            },
+            Google: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[7]/a',
+                authorized_javaScript_origins_input: '//*[@id="google"]/div/div/fieldset/div[21]/input',
+                authorized_redirect_uri_input: '//*[@id="google"]/div/div/fieldset/div[22]/input',
+                developers_link: '//*[@id="google"]/div/div/fieldset/div[9]/a',
+                customer_key_input: '//*[@id="oci"]',
+                customer_secret_input: '//*[@id="ocs"]',
+                save_button: '//*[@id="module_form_submit_btn_21"]',
+            },
+            Pinterest: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[18]/a',
+                developers_link: '//*[@id="pinterest"]/div/div/fieldset/div[3]/a',
+                site_url_input: '//*[@id="pinterest"]/div/div/fieldset/div[8]/input',
+                redirect_url_input: '//*[@id="pinterest"]/div/div/fieldset/div[9]/input',
+                customer_key_input: '//*[@id="pici"]',
+                customer_secret_input: '//*[@id="pics"]',
+                save_button: '//*[@id="module_form_submit_btn_32"]',
+            },
+            Yahoo: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+            },
+            Paypal: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[9]/a',
+                return_url_input: '//*[@id="paypal"]/div/div/fieldset/div[8]/input',
+                privacy_policy_url_input: '//*[@id="paypal"]/div/div/fieldset/div[11]/input',
+                user_agreement_url_input: '//*[@id="paypal"]/div/div/fieldset/div[12]/input',
+                developers_link: '//*[@id="paypal"]/div/div/fieldset/div[3]/a',
+                log_inti_dashboard_button: '//*[@id="header"]/div[2]/div[2]/span/div/a',
+                customer_key_input: '//*[@id="clientid"]',
+                customer_secret_input: '//*[@id="psecret"]',
+                save_button: '//*[@id="module_form_submit_btn_23"]',
+            },
+            Linkedin: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[10]/a',
+                website_url_input: '//*[@id="linkedin"]/div/div/fieldset/div[11]/input',
+                developers_link: '//*[@id="linkedin"]/div/div/fieldset/div[3]/a',
+                customer_key_input: '//*[@id="lapikey"]',
+                customer_secret_input: '//*[@id="lsecret"]',
+                save_button: '//*[@id="module_form_submit_btn_24"]',
+            },
+            Microsoft: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[11]/a',
+                redirect_url_input: '//*[@id="hotmail"]/div/div/fieldset/div[8]/input',
+                developers_link: '//*[@id="hotmail"]/div/div/fieldset/div[3]/a',
+                customer_key_input: '//*[@id="mclientid"]',
+                customer_secret_input: '//*[@id="mclientsecret"]',
+                save_button: '//*[@id="module_form_submit_btn_25"]',
+            },
+            Foursquare: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[12]/a',
+                redirect_url_input: '//*[@id="foursquare"]/div/div/fieldset/div[9]/input',
+                welcome_page_url_input: '//*[@id="foursquare"]/div/div/fieldset/div[7]/input',
+                privacy_policy_url_input: '//*[@id="foursquare"]/div/div/fieldset/div[8]/input',
+                developers_link: '//*[@id="foursquare"]/div/div/fieldset/div[3]/a',
+                customer_key_input: '//*[@id="fsci"]',
+                customer_secret_input: '//*[@id="fscs"]',
+                save_button: '//*[@id="module_form_submit_btn_26"]',
+            },
+            Github: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[13]/a',
+                developers_link: '//*[@id="github"]/div/div/fieldset/div[3]/a',
+                home_page_url_input: '//*[@id="github"]/div/div/fieldset/div[5]/input',
+                callback_url_input: '//*[@id="github"]/div/div/fieldset/div[7]/input',
+                customer_key_input: '//*[@id="gici"]',
+                customer_secret_input: '//*[@id="gics"]',
+                save_button: '//*[@id="module_form_submit_btn_27"]',
+            },
+            Disqus: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[14]/a',
+                developers_link: '//*[@id="disqus"]/div/div/fieldset/div[3]/a',
+                website_url_input: '//*[@id="disqus"]/div/div/fieldset/div[8]/input',
+                callback_url_input: '//*[@id="disqus"]/div/div/fieldset/div[12]/input',
+                terms_of_service_url_input: '//*[@id="disqus"]/div/div/fieldset/div[16]/input',
+                api_key_input: '//*[@id="dci"]',
+                api_secret_input: '//*[@id="dcs"]',
+                save_button: '//*[@id="module_form_submit_btn_28"]',
+            },
+            Dropbox: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[15]/a',
+                redirect_uri_input: '//*[@id="dropbox"]/div/div/fieldset/div[10]/input',
+                developers_link: '//*[@id="dropbox"]/div/div/fieldset/div[3]/a',
+                api_key_input: '//*[@id="dbci"]',
+                api_secret_input: '//*[@id="dbcs"]',
+                save_button: '//*[@id="module_form_submit_btn_29"]',
+            },
+            Wordpress: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[16]/a',
+                developers_link: '//*[@id="wordpress"]/div/div/fieldset/div[3]/a',
+                website_url_input: '//*[@id="wordpress"]/div/div/fieldset/div[7]/input',
+                redirect_uri_input: '//*[@id="wordpress"]/div/div/fieldset/div[8]/input',
+                javascript_origins_input: '//*[@id="wordpress"]/div/div/fieldset/div[9]/input',
+                customer_key_input: '//*[@id="wci"]',
+                customer_secret_input: '//*[@id="wcs"]',
+                save_button: '//*[@id="module_form_submit_btn_30"]',
+            },
+            Tumblr: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[17]/a',
+                developers_link: '//*[@id="tumblr"]/div/div/fieldset/div[3]/a',
+                website_url_input: '//*[@id="tumblr"]/div/div/fieldset/div[6]/input',
+                callback_url_input: '//*[@id="tumblr"]/div/div/fieldset/div[8]/input',
+                customer_key_input: '//*[@id="tuci"]',
+                customer_secret_input: '//*[@id="tucs"]',
+                save_button: '//*[@id="module_form_submit_btn_31"]',
+            },
+            Vkontakte: {
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[19]/a',
+                developers_link: '//*[@id="vkontakte"]/div/div/fieldset/div[3]/a',
+                site_address_input: '//*[@id="vkontakte"]/div/div/fieldset/div[6]/input',
+                customer_key_input: '//*[@id="vci"]',
+                customer_secret_input: '//*[@id="vcs"]',
+                save_button: '//*[@id="module_form_submit_btn_33"]',
             }
         },
 
@@ -152,7 +310,8 @@ module.exports = {
             AccessPage: {
                 logo_home_page: '.logo.img-responsive',
                 first_product_home_page: '.thumbnail.product-thumbnail',
-                
+                first_product_home_page_name: '[itemprop="name"]',
+
                 access_loginFO:'div.user-info > a',
                 loginFO_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',
                 passwordFO_input: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
@@ -167,7 +326,30 @@ module.exports = {
                 product_choice:'//*[@id="content"]/section[1]/div/article[1]/div/div[1]/h1/a',
                 product_image: '#content',
                 validate_cart_choice_button:'//*[@id="add-to-cart-or-refresh"]/div[2]/div[1]/div[2]/button',
-                modal_valid_button:'//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a'
+                modal_valid_button:'//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
+
+                product_name_details: '[itemprop="name"]',
+                product_price_details: '[itemprop="price"]',
+                product_quantity_details: '#quantity_wanted',
+                layer_cart: '//div[@id="blockcart-modal" and @style="display: block;"]',
+                layer_cart_name_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/h6',
+                layer_cart_price_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[1]',
+                layer_cart_quantity_details: '//div[@id="blockcart-modal"]/div/div/div[2]/div/div[1]/div/div[2]/p[2]',
+                layer_cart_command_button: '//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
+                command_product_name: '(//div[@class="product-line-info"])[1]/a',
+                command_product_price: '//span[@class="price"]',
+                command_checkout_button: '//*[@id="main"]/div/div[2]/div[1]/div[3]/div/a',
+                checkout_step2_continue_button: '//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
+                // checkout_step2_continue_button: '//*[@id="delivery-address"]/div/footer/button',
+                checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+                checkout_step4_payment: '//*[@id="payment-option-2"]',
+                checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
+                checkout_step4_order: '#payment-confirmation >div > button',
+                checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
+                order_confirmation_name: '#order-items > div > div > div.col-sm-4.col-xs-9.details > span',
+                order_confirmation_price1: '#order-items > div > table > tbody > tr:nth-child(1) > td:nth-child(2)',
+                order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
+                order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]'
             },
             
             //Cart summary selectors
@@ -179,7 +361,178 @@ module.exports = {
                 checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
                 checkout_step4_order_button: '#payment-confirmation >div > button',
                 order_confirmation_text:'#content-hook_order_confirmation > div > div > div > h3 > i'
+            },
+
+            Facebook: {
+                first_facebook_logo: '#follow-teaser > div > a.facebook.custom-social-button-all.custom-social-button-1 > i',
+                second_facebook_logo: '#_desktop_user_info > div > span > a.facebook.custom-social-button-all.custom-social-button-4 > i',
+                third_facebook_logo: '#follow-teaser-footer > div > a.facebook.custom-social-button-all.custom-social-button-1 > i'
+            },
+            Twitter: {
+                first_twitter_logo: '#follow-teaser > div > a.twitter.custom-social-button-all.custom-social-button-1 > i',
+                second_twitter_logo: '#_desktop_user_info > div > span > a.twitter.custom-social-button-all.custom-social-button-4 > i',
+                third_twitter_logo: '#follow-teaser-footer > div > a.twitter.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="username_or_email"]',
+                password_input: '//*[@id="password"]',
+                allow_button: '//*[@id="allow"]',
+                linked_modale: '#fb-con-wrapper',
+                email_input: '//*[@id="api-email"]',
+                send_button: '//*[@id="fb-con-wrapper"]/a[2]',
+                check_sent_email_p: '//*[@id="fb-con-wrapper"]/p',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Amazon: {
+                first_amazon_logo: '#follow-teaser > div > a.amazon.custom-social-button-all.custom-social-button-1 > i',
+                second_amazon_logo: '#_desktop_user_info > div > span > a.amazon.custom-social-button-all.custom-social-button-4 > i',
+                third_amazon_logo: '#follow-teaser-footer > div > a.amazon.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="ap_email"]',
+                password_input: '//*[@id="ap_password"]',
+                signin_button: '//*[@id="signInSubmit"]/span/button',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Google: {
+                first_google_logo: '#follow-teaser > div > a.google.custom-social-button-all.custom-social-button-1 > i',
+                second_google_logo: '#_desktop_user_info > div > span > a.google.custom-social-button-all.custom-social-button-4 > i',
+                third_google_logo: '#follow-teaser-footer > div > a.google.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="identifierId"]',
+                identifier_next_button: '//*[@id="identifierNext"]',
+                password_input: '//input[@type="password" and @name="password"]',
+                password_next_button: '//*[@id="passwordNext"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Pinterest: {
+                first_pinterest_logo: '#follow-teaser > div > a.pinterest.custom-social-button-all.custom-social-button-1 > i',
+                second_pinterest_logo: '#_desktop_user_info > div > span > a.pinterest.custom-social-button-all.custom-social-button-4 > i',
+                third_pinterest_logo: '#follow-teaser-footer > div > a.pinterest.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//input[@type="email" and @name="id"]',
+                password_input: '//input[@type="password" and @name="password"]',
+                login_button: '.red.SignupButton.active',
+                allow_button: '//*[@id="dialog_footer"]/button[2]',
+                linked_email_input: '//*[@id="api-email"]',
+                send_button: '//*[@id="fb-con-wrapper"]/a[2]',
+                check_sent_email_p: '//*[@id="fb-con-wrapper"]/p',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Yahoo: {
+                first_yahoo_logo: '#follow-teaser > div > a.yahoo.custom-social-button-all.custom-social-button-1 > i',
+                second_yahoo_logo: '#_desktop_user_info > div > span > a.yahoo.custom-social-button-all.custom-social-button-4 > i',
+                third_yahoo_logo: '#follow-teaser-footer > div > a.yahoo.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="login-username"]',
+                password_input: '//*[@id="login-passwd"]',
+                next_button: '//*[@id="login-signin"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Paypal: {
+                first_paypal_logo: '#follow-teaser > div > a.paypal.custom-social-button-all.custom-social-button-1 > i',
+                second_paypal_logo: '#_desktop_user_info > div > span > a.paypal.custom-social-button-all.custom-social-button-4 > i',
+                third_paypal_logo: '#follow-teaser-footer > div > a.paypal.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="email"]',
+                password_input: '//*[@id="password"]',
+                login_button: '//*[@id="btnLogin"]',
+                allow_button: '//*[@id="agreeConsent"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Linkedin: {
+                first_linkedin_logo: '#follow-teaser > div > a.linkedin.custom-social-button-all.custom-social-button-1 > i',
+                second_linkedin_logo: '#_desktop_user_info > div > span > a.linkedin.custom-social-button-all.custom-social-button-4 > i',
+                third_linkedin_logo: '#follow-teaser-footer > div > a.linkedin.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="session_key-oauthAuthorizeForm"]',
+                password_input: '//*[@id="session_password-oauthAuthorizeForm"]',
+                allow_button: '.allow.btn-primary',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Microsoft: {
+                first_microsoft_logo: '#follow-teaser > div > a.microsoft.custom-social-button-all.custom-social-button-1 > i',
+                second_microsoft_logo: '#_desktop_user_info > div > span > a.microsoft.custom-social-button-all.custom-social-button-4 > i',
+                third_microsoft_logo: '#follow-teaser-footer > div > a.microsoft.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="i0116"]',
+                password_input: '//*[@id="i0118"]',
+                next_button: '//*[@id="idSIButton9"]',
+                accept_button: '//*[@id="idBtn_Accept"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Foursquare: {
+                first_foursquare_logo: '#follow-teaser > div > a.foursquare.custom-social-button-all.custom-social-button-1 > i',
+                second_foursquare_logo: '#_desktop_user_info > div > span > a.foursquare.custom-social-button-all.custom-social-button-4 > i',
+                third_foursquare_logo: '#follow-teaser-footer > div > a.foursquare.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="username"]',
+                password_input: '//*[@id="password"]',
+                allow_button: '//*[@id="loginFormButton"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Github: {
+                first_github_logo: '#follow-teaser > div > a.github.custom-social-button-all.custom-social-button-1 > i',
+                second_github_logo: '#_desktop_user_info > div > span > a.github.custom-social-button-all.custom-social-button-4 > i',
+                third_github_logo: '#follow-teaser-footer > div > a.github.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="login_field"]',
+                password_input: '//*[@id="password"]',
+                allow_button: '.btn.btn-primary.btn-block',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Disqus: {
+                first_disqus_logo: '#follow-teaser > div > a.disqus.custom-social-button-all.custom-social-button-1 > i',
+                second_disqus_logo: '#_desktop_user_info > div > span > a.disqus.custom-social-button-all.custom-social-button-4 > i',
+                third_disqus_logo: '#follow-teaser-footer > div > a.disqus.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="username"]',
+                password_input: '//*[@id="password"]',
+                allow_button: '.btn',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Dropbox: {
+                first_dropbox_logo: '#follow-teaser > div > a.dropbox.custom-social-button-all.custom-social-button-1 > i',
+                second_dropbox_logo: '#_desktop_user_info > div > span > a.dropbox.custom-social-button-all.custom-social-button-4 > i',
+                third_dropbox_logo: '#follow-teaser-footer > div > a.dropbox.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="regular-login-forms"]/div/form/div[1]/div[1]/div[2]/input',
+                password_input: '//*[@id="regular-login-forms"]/div/form/div[1]/div[2]/div[2]/input',
+                login_button: '.login-button.signin-button.button-primary',
+                allow_button: '.auth-button.button-primary',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Wordpress: {
+                first_wordpress_logo: '#follow-teaser > div > a.wordpress.custom-social-button-all.custom-social-button-1 > i',
+                second_wordpress_logo: '#_desktop_user_info > div > span > a.wordpress.custom-social-button-all.custom-social-button-4 > i',
+                third_wordpress_logo: '#follow-teaser-footer > div > a.wordpress.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="usernameOrEmail"]',
+                password_input: '//*[@id="password"]',
+                login_button: '.button.form-button.is-primary',
+                allow_button: '//*[@id="approve"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Tumblr: {
+                first_tumblr_logo: '#follow-teaser > div > a.tumblr.custom-social-button-all.custom-social-button-1 > i',
+                second_tumblr_logo: '#_desktop_user_info > div > span > a.tumblr.custom-social-button-all.custom-social-button-4 > i',
+                third_tumblr_logo: '#follow-teaser-footer > div > a.tumblr.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="signup_determine_email"]',
+                password_input: '//*[@id="signup_password"]',
+                next_button: '//*[@id="signup_forms_submit"]/span[2]',
+                allow_button: '//*[@id="approve"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+            },
+            Vkontakte: {
+                first_vkontakte_logo: '#follow-teaser > div > a.vkontakte.custom-social-button-all.custom-social-button-1 > i',
+                second_vkontakte_logo: '#_desktop_user_info > div > span > a.vkontakte.custom-social-button-all.custom-social-button-4 > i',
+                third_vkontakte_logo: '#follow-teaser-footer > div > a.vkontakte.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="login_submit"]/div/div/input[6]',
+                password_input: '//*[@id="login_submit"]/div/div/input[7]',
+                login_button: '//*[@id="install_allow"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
             }
+
         },
 
         //Others
