@@ -22,9 +22,9 @@ describe('Configuration app of pinterest in back office', function() {
             this.client
                 .url('https://' + URL + '/backoffice/')
                 .waitForExist(this.selector.BO.AccessPage.login_input, 120000)
-                .setValue(this.selector.BO.AccessPage.login_input, 'remi.gaillard@prestashop.com')
+                .setValue(this.selector.BO.AccessPage.login_input, email)
                 .waitForExist(this.selector.BO.AccessPage.password_input, 120000)
-                .setValue(this.selector.BO.AccessPage.password_input, 'abcd1234')
+                .setValue(this.selector.BO.AccessPage.password_input, password)
                 .waitForExist(this.selector.BO.AccessPage.login_button, 90000)
                 .click(this.selector.BO.AccessPage.login_button)
                 .waitForExist(this.selector.BO.Common.menu, 60000)

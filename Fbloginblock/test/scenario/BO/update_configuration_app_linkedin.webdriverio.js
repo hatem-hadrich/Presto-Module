@@ -4,7 +4,7 @@ var common = require('../../../../common/common.webdriverio');
 var globals = require('../../../../common/globals.webdriverio');
 var externals = require('../../../../common/external_globals.webdriverio');
 
-describe('Configuration app of microsoft in back office', function() {
+describe('Configuration app of linkedin in back office', function() {
     common.initMocha.call(this);
 
     before(function (done) {
@@ -22,9 +22,9 @@ describe('Configuration app of microsoft in back office', function() {
             this.client
                 .url('https://' + URL + '/backoffice/')
                 .waitForExist(this.selector.BO.AccessPage.login_input, 120000)
-                .setValue(this.selector.BO.AccessPage.login_input, 'remi.gaillard@prestashop.com')
+                .setValue(this.selector.BO.AccessPage.login_input, email)
                 .waitForExist(this.selector.BO.AccessPage.password_input, 120000)
-                .setValue(this.selector.BO.AccessPage.password_input, 'abcd1234')
+                .setValue(this.selector.BO.AccessPage.password_input, password)
                 .waitForExist(this.selector.BO.AccessPage.login_button, 90000)
                 .click(this.selector.BO.AccessPage.login_button)
                 .waitForExist(this.selector.BO.Common.menu, 60000)
@@ -70,93 +70,83 @@ describe('Configuration app of microsoft in back office', function() {
 
     describe('Access to the configuration page', function (done) {
 
-        it('should access to microsoft configuration page', function (done) {
+        it('should access to linkedin configuration page', function (done) {
             this.client
-                .waitForExist(this.selector.BO.Microsoft.config_button, 90000)
-                .click(this.selector.BO.Microsoft.config_button)
+                .waitForExist(this.selector.linkedin.config_button, 90000)
+                .click(this.selector.linkedin.config_button)
                 .call(done);
         });
 
-        it('should click on microsoft developers link', function (done) {
+        it('should go to linkedin developers link', function (done) {
 
             this.client
-                .waitForExist(this.selector.BO.Microsoft.redirect_url_input, 90000)
-                .getAttribute(this.selector.BO.Microsoft.redirect_url_input, 'value').then(function (url) {
-                global.redirect_url = url;
+                .waitForExist(this.selector.BO.Linkedin.website_url_input, 90000)
+                .getAttribute(this.selector.BO.Linkedin.website_url_input, 'value').then(function (url) {
+                global.website_url = url;
             })
-                .waitForExist(this.selector.BO.Microsoft.developers_link, 90000)
-                .click(this.selector.BO.Microsoft.developers_link)
-                .pause(5000)
+                .waitForExist(this.selector.BO.Linkedin.developers_link, 90000)
+                .click(this.selector.BO.Linkedin.developers_link)
                 .call(done);
         });
 
-        it('should enter the email of microsoft account', function (done) {
+        it('should click on identify button', function (done) {
             global.fctname = this.test.title;
             this.client
                 .getTabIds().then(function (handles) {
                 return this.switchTab(handles[handles.length - 1])
             })
-                .waitForExist(this.external.FO.Microsoft.username_input, 90000)
-                .setValue(this.external.FO.Microsoft.username_input, 'prestotests@outlook.com')
-                .waitForExist(this.external.FO.Microsoft.next_button, 90000)
-                .click(this.external.FO.Microsoft.next_button)
-                .pause(5000)
+                .waitForExist(this.external.FO.Linkedin.identify_button, 90000)
+                .click(this.external.FO.Linkedin.identify_button)
                 .call(done);
         });
 
-        it('should enter the password of microsoft account', function (done) {
+        it('should access to the linkedin account', function (done) {
             global.fctname = this.test.title;
             this.client
-                .waitForExist(this.external.FO.Microsoft.password_input, 90000)
-                .setValue(this.external.FO.Microsoft.password_input, 'presto_tests')
-                .waitForExist(this.external.FO.Microsoft.next_button, 90000)
-                .click(this.external.FO.Microsoft.next_button)
-                .pause(5000)
-                .call(done);
-        });
-
-        it('should click on cancel button', function (done) {
-            this.client
-                .waitForVisible(this.external.FO.Microsoft.cancel_button, 90000)
-                .click(this.external.FO.Microsoft.cancel_button)
-                .pause(5000)
+                .waitForExist(this.external.FO.Linkedin.username_input, 90000)
+                .setValue(this.external.FO.Linkedin.username_input, 'prestotestslinkedin@gmail.com')
+                .setValue(this.external.FO.Linkedin.password_input, 'presto_tests')
+                .waitForExist(this.external.FO.Linkedin.signin_button, 90000)
+                .click(this.external.FO.Linkedin.signin_button)
                 .call(done);
         });
 
         it('should access to the app PrestoAppSocialConnect', function (done) {
             this.client
-                .waitForExist(this.external.FO.Microsoft.app_link, 90000)
-                .click(this.external.FO.Microsoft.app_link)
-                .pause(5000)
+                .waitForExist(this.external.FO.Linkedin.app_link, 90000)
+                .click(this.external.FO.Linkedin.app_link)
                 .call(done);
         });
 
-        it('should enter the redirect url', function (done) {
+        it('should click on preferences menu', function (done) {
             this.client
-                .moveToObject(this.external.FO.Microsoft.customer_key_div)
-                .getText(this.external.FO.Microsoft.customer_key_div).then(function (key) {
-                global.microsoft_customer_key = key;
-                console.log(global.microsoft_customer_key);
+                .getText(this.external.FO.Linkedin.customer_key_span).then(function (key) {
+                global.linkedin_customer_key = key;
+                console.log(global.linkedin_customer_key);
             })
-                .pause(5000)
-                .moveToObject(this.external.FO.Microsoft.customer_secret_td)
-                .getText(this.external.FO.Microsoft.customer_secret_td).then(function (secret) {
-                global.microsoft_customer_secret = secret[1];
-                console.log(global.microsoft_customer_secret);
+                .getText(this.external.FO.Linkedin.customer_secret_span).then(function (secret) {
+                global.linkedin_customer_secret = secret;
+                console.log(global.linkedin_customer_secret);
             })
-                .moveToObject(this.external.FO.Microsoft.add_profile_button, 90000)
-                .setValue(this.external.FO.Microsoft.redirect_url_input, global.redirect_url)
-                .pause(5000)
+                .waitForExist(this.external.FO.Linkedin.preferences_button, 90000)
+                .click(this.external.FO.Linkedin.preferences_button)
                 .call(done);
         });
 
-        it('should click on save button', function (done) {
+        it('should enter the website url', function (done) {
             this.client
-                .moveToObject(this.external.FO.Microsoft.save_button)
-                .click(this.external.FO.Microsoft.save_button)
-                .pause(7000)
+                .waitForExist(this.external.FO.Linkedin.website_url_input, 90000)
+                .click(this.external.FO.Linkedin.website_url_input)
+                .setValue(this.external.FO.Linkedin.website_url_input, global.website_url)
+                .call(done);
+        });
+
+        it('should click on update button', function (done) {
+            this.client
+                .moveToObject(this.external.FO.Linkedin.update_button)
+                .click(this.external.FO.Linkedin.update_button)
+                .pause(5000)
                 .getTabIds().then(function(handles){
-                    this.close(handles[handles.length - 1]);
                 return this.switchTab(handles[0])
             })
                 .call(done);
@@ -164,17 +154,16 @@ describe('Configuration app of microsoft in back office', function() {
 
         it('should enter the customer id and secret', function (done) {
             this.client
-                .waitForExist(this.selector.BO.Microsoft.customer_key_input, 90000)
-                .setValue(this.selector.BO.Microsoft.customer_key_input, global.microsoft_customer_key)
-                .pause(3000)
-                .setValue(this.selector.BO.Microsoft.customer_secret_input, global.microsoft_customer_secret)
+                .waitForExist(this.selector.BO.Linkedin.customer_key_input, 90000)
+                .setValue(this.selector.BO.Linkedin.customer_key_input, global.linkedin_customer_key)
+                .setValue(this.selector.BO.Linkedin.customer_secret_input, global.linkedin_customer_secret)
                 .call(done);
         });
 
-        it('should save microsoft configurations', function (done) {
+        it('should save linkedin configurations', function (done) {
             this.client
-                .waitForExist(this.selector.BO.Microsoft.save_button, 90000)
-                .click(this.selector.BO.Microsoft.save_button)
+                .waitForExist(this.selector.BO.Linkedin.save_button, 90000)
+                .click(this.selector.BO.Linkedin.save_button)
                 .call(done);
         });
         it('logout BO', function (done) {

@@ -77,7 +77,6 @@ module.exports = {
 
             //Customer page selectors
             CustomersPage: {
-                number_of_customer_found: '',
                 customer_subtab: '#subtab-AdminParentCustomer',
                 customer_address_email_input: '//*[@id="form-customer"]/div/div[2]/table/thead/tr[2]/th[7]/input',
                 customer_search_button: '#submitFilterButtoncustomer',
