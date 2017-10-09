@@ -1,7 +1,8 @@
 'use strict';
 var should = require('should');
-var common = require('../../common.webdriverio');
-var globals = require('../../globals.webdriverio');
+var common = require('../../../../common/common.webdriverio');
+var globals = require('../../../../common/globals.webdriverio');
+var externals = require('../../../../common/external_globals.webdriverio');
 
 describe('Configuration app of vkontakte in back office', function() {
     common.initMocha.call(this);
@@ -10,8 +11,8 @@ describe('Configuration app of vkontakte in back office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+    // process.on('uncaughtException', common.take_screenshot);
+    // process.on('ReferenceError', common.take_screenshot);
     after(common.after);
 
     describe('Log in in Back Office', function (done) {

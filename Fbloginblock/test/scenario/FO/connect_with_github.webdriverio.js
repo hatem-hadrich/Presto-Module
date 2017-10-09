@@ -10,8 +10,7 @@ describe('Connecting with github in front office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Access to the Front Office', function() {
@@ -76,11 +75,22 @@ describe('Connecting with github in front office', function() {
             global.fctname = this.test.title;
             this.client
                 .pause(2000)
-                .waitForVisible(this.selector.FO.Github.user_connected_span, 90000)
-                .moveToObject(this.selector.FO.Github.user_connected_span)
+                .waitForExist(this.selector.FO.Github.user_connected_span, 90000)
                 .getText(this.selector.FO.Github.user_connected_span).then(function (user) {
                 should(user).be.equal('prestotests prestotests');
             })
+                .call(done);
+
+        });
+    });
+
+    describe('Log out in Front Office', function (done) {
+        it('should logout successfully in FO', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.FO.AccessPage.logoutFO, 90000)
+                .click(this.selector.FO.AccessPage.logoutFO)
+                .waitForExist(this.selector.FO.AccessPage.access_loginFO, 90000)
                 .call(done);
 
         });

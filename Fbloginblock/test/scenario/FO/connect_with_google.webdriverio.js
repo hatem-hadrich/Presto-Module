@@ -3,6 +3,8 @@ var should = require('should');
 var common = require('../../../../common/common.webdriverio');
 var globals = require('../../../../common/globals.webdriverio.js');
 
+var visible_username_input = false;
+
 describe('Connecting with google in front office', function() {
     common.initMocha.call(this);
 
@@ -10,8 +12,7 @@ describe('Connecting with google in front office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Access to the Front Office', function() {
@@ -44,28 +45,35 @@ describe('Connecting with google in front office', function() {
                 .windowHandles().then(function (handles) {
                 return this.switchTab(handles.value[handles.value.length - 1]);
             })
+                .pause(2000)
+                .isVisible(this.selector.FO.Google.username_input).then(function (visible) {
+                visible_username_input = visible;
+            })
                 .call(done);
         });
 
-        it('should enter the google email', function (done) {
+        it('should connecting with google account', function (done) {
             global.fctname = this.test.title;
-            this.client
-                .waitForExist(this.selector.FO.Google.username_input, 90000)
-                .setValue(this.selector.FO.Google.username_input, 'prestotests@gmail.com')
-                .waitForExist(this.selector.FO.Google.identifier_next_button, 90000)
-                .click(this.selector.FO.Google.identifier_next_button)
-                .call(done);
-        });
-
-        it('should enter the google password', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .waitForVisible(this.selector.FO.Google.password_input, 90000)
-                .setValue(this.selector.FO.Google.password_input, 'presto_tests')
-                .waitForExist(this.selector.FO.Google.password_next_button, 90000)
-                .click(this.selector.FO.Google.password_next_button)
-                .pause(5000)
-                .call(done);
+            if(visible_username_input){
+                this.client
+                    .waitForExist(this.selector.FO.Google.username_input, 90000)
+                    .setValue(this.selector.FO.Google.username_input, 'prestotests@gmail.com')
+                    .waitForExist(this.selector.FO.Google.identifier_next_button, 90000)
+                    .click(this.selector.FO.Google.identifier_next_button)
+                    .pause(5000)
+                    .waitForVisible(this.selector.FO.Google.password_input, 90000)
+                    .setValue(this.selector.FO.Google.password_input, 'presto_tests')
+                    .waitForExist(this.selector.FO.Google.password_next_button, 90000)
+                    .click(this.selector.FO.Google.password_next_button)
+                    .pause(5000)
+                    .call(done);
+            }else{
+                this.client
+                    .waitForExist(this.selector.FO.Google.user_link, 90000)
+                    .click(this.selector.FO.Google.user_link)
+                    .pause(5000)
+                    .call(done);
+            }
         });
 
     });
@@ -90,6 +98,17 @@ describe('Connecting with google in front office', function() {
                 .getText(this.selector.FO.Google.user_connected_span).then(function (user) {
                 should(user).be.equal('Presto Tests');
             })
+                .call(done);
+
+        });
+    });
+    describe('Log out in Front Office', function (done) {
+        it('should logout successfully in FO', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.FO.AccessPage.logoutFO, 90000)
+                .click(this.selector.FO.AccessPage.logoutFO)
+                .waitForExist(this.selector.FO.AccessPage.access_loginFO, 90000)
                 .call(done);
 
         });

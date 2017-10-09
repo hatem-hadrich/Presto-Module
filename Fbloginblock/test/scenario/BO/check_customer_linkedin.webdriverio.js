@@ -10,8 +10,8 @@ describe('Check linkedin customer in back office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+    // process.on('uncaughtException', common.take_screenshot);
+    // process.on('ReferenceError', common.take_screenshot);
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -46,8 +46,8 @@ describe('Check linkedin customer in back office', function() {
         it('should click on search button', function (done) {
             this.client
                 .pause(3000)
-                .waitForExist(this.selector.customer_search_button, 90000)
-                .click(this.selector.customer_search_button)
+                .waitForExist(this.selector.BO.CustomersPage.customer_search_button, 90000)
+                .click(this.selector.BO.CustomersPage.customer_search_button)
                 .call(done);
         });
 

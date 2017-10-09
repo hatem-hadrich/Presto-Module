@@ -8,7 +8,7 @@ global.date_time = new Date().getTime();
 global.URL = argv.URL;
 global.email = argv.EMAIL;
 global.password = argv.PWD;
-global.module_tech_name = 'faviconotification';
+global.module_tech_name = 'fbloginblock';
 global.module_tech_name_prestafraud = 'prestafraud';
 global.module_tech_name_socialConnect = 'fbloginblock';
 global.browser = argv.browser;
@@ -65,7 +65,8 @@ module.exports = {
                 installed_modules_tabs: '(//div[@class="page-head-tabs"]/a)[2]',
                 module_number_span: '[class="module-sorting-search-wording"]',
                 number_of_module_found:'//*[@id="main-div"]/div[3]/div/div/div[2]/div/div[7]/span[1]',
-                configuration_button:'//*[@id="modules-list-container-all"]/div[1]/div/div/div[5]/div[2]/form/button',
+                //configuration_button:'//*[@id="modules-list-container-all"]/div[1]/div/div/div[5]/div[2]/form/button',
+                configuration_button:'//*[@id="modules-list-container-all"]/div/div/div/div[5]/div[2]/form/button',
                 module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
                 install_module_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
                 uninstall_module_list: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@class="btn btn-primary-outline  dropdown-toggle"]',
@@ -77,6 +78,7 @@ module.exports = {
 
             //Customer page selectors
             CustomersPage: {
+                number_of_customer: '//*[@id="form-customer"]/div/div[1]/span[1]',
                 customer_subtab: '#subtab-AdminParentCustomer',
                 customer_address_email_input: '//*[@id="form-customer"]/div/div[2]/table/thead/tr[2]/th[7]/input',
                 customer_search_button: '#submitFilterButtoncustomer',
@@ -302,7 +304,8 @@ module.exports = {
                 favicon: '/html/head/link[2]',
 
                 desktop_login:'//*[@id="_desktop_logo"]/a',
-                cookie_banner_close_button:'//*[@id="checkout"]/div/a'
+                cookie_banner_close_button:'//*[@id="checkout"]/div/a',
+                clickOutSide: '//*[@id="index"]',
             },
 
             //Access page selectors
@@ -315,7 +318,8 @@ module.exports = {
                 loginFO_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',
                 passwordFO_input: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
                 loginFO_button: '//*[@id="login-form"]/footer/button',
-                logoutFO: '.logout'
+                //logoutFO: '.logout'
+                logoutFO: '//*[@id="_desktop_user_info"]/div/a[1]'
             },
 
             //Product page selectors
@@ -400,7 +404,8 @@ module.exports = {
                 identifier_next_button: '//*[@id="identifierNext"]',
                 password_input: '//input[@type="password" and @name="password"]',
                 password_next_button: '//*[@id="passwordNext"]',
-                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span',
+                user_link: '//*[@id="view_container"]/form/div[2]/div/div/div/ul/li[1]/div/div[1]/img'
             },
             Pinterest: {
                 first_pinterest_logo: '#follow-teaser > div > a.pinterest.custom-social-button-all.custom-social-button-1 > i',

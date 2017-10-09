@@ -12,8 +12,7 @@ describe('Configuration app of foursquare in back office', function() {
         this.external = externals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -36,8 +35,6 @@ describe('Configuration app of foursquare in back office', function() {
         it('should go to modules installed page', function (done) {
             this.client
                 .click(this.selector.BO.ModulesPage.modules_subtab)
-                // .waitForExist(this.selector.modules_installed)
-                // .click(this.selector.modules_installed)
                 .waitForExist(this.selector.BO.ModulesPage.page_loaded, 90000)
                 .call(done);
         });
@@ -125,12 +122,10 @@ describe('Configuration app of foursquare in back office', function() {
                 .waitForExist(this.external.FO.Foursquare.customer_key_pre, 90000)
                 .getText(this.external.FO.Foursquare.customer_key_pre).then(function (key) {
                 global.foursquare_customer_key = key;
-                console.log(global.foursquare_customer_key)
             })
                 .waitForExist(this.external.FO.Foursquare.customer_secret_pre, 90000)
                 .getText(this.external.FO.Foursquare.customer_secret_pre).then(function (secret) {
                 global.foursquare_customer_secret = secret;
-                console.log(global.foursquare_customer_secret)
             })
                 .waitForExist(this.external.FO.Foursquare.update_button, 90000)
                 .click(this.external.FO.Foursquare.update_button)

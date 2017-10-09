@@ -12,8 +12,7 @@ describe('Configuration app of twitter in back office', function() {
         this.external = externals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -36,8 +35,6 @@ describe('Configuration app of twitter in back office', function() {
         it('should go to modules installed page', function (done) {
             this.client
                 .click(this.selector.BO.ModulesPage.modules_subtab)
-                // .waitForExist(this.selector.modules_installed)
-                // .click(this.selector.modules_installed)
                 .waitForExist(this.selector.BO.ModulesPage.page_loaded, 90000)
                 .call(done);
         });
@@ -174,9 +171,9 @@ describe('Configuration app of twitter in back office', function() {
 
         it('should enter the customer key and secret', function (done) {
             this.client
-                .waitForExist(this.external.FO.Twitter.customer_key_input, 90000)
-                .setValue(this.external.FO.Twitter.customer_key_input, global.api_key)
-                .setValue(this.external.FO.Twitter.customer_secret_input, global.api_secret)
+                .waitForExist(this.selector.BO.Twitter.customer_key_input, 90000)
+                .setValue(this.selector.BO.Twitter.customer_key_input, global.api_key)
+                .setValue(this.selector.BO.Twitter.customer_secret_input, global.api_secret)
                 .call(done);
         });
 

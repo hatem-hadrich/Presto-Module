@@ -18,6 +18,7 @@ module.exports = {
                 signein_login_input : '//*[@id="page-container"]/div/div[1]/form/fieldset/div[1]/input',
                 signein_password_input : '//*[@id="page-container"]/div/div[1]/form/fieldset/div[2]/input',
                 signein_connect_input : '//*[@id="page-container"]/div/div[1]/form/div[2]/button',
+
                 app_link : '//*[@id="gaz-content-body"]/div[3]/div/ul/li[1]/div/div[2]/h2/a',
                 settings_tab : '//*[@id="gaz-content-body"]/div[2]/ul/li[2]/a',
                 key_and_access_tokens_tab : '//*[@id="gaz-content-body"]/div[2]/ul/li[3]/a',
@@ -32,6 +33,11 @@ module.exports = {
 
             },
             Google: {
+                username_input: '//*[@id="identifierId"]',
+                identifier_next_button: '//*[@id="identifierNext"]',
+                password_input: '//input[@type="password" and @name="password"]',
+                password_next_button: '//*[@id="passwordNext"]',
+
                 app_link: '//*[@id="p6n-project-table"]/tbody/tr[5]/td[2]/a',
                 settings_button: '//pan-platform-bar-button[@class="p6n-console-nav-button p6n-console-nav-button-container"]/button',
                 api_and_services_menu: '//a[@class="p6n-console-nav-item-link md-button md-default-theme md-ink-ripple"]',
@@ -95,6 +101,10 @@ module.exports = {
                 customer_secret_span: '//*[@id="control_gen_1"]/form/ul[1]/li/table/tbody/tr[3]/td[2]/span'
             },
             Microsoft: {
+                username_input: '//*[@id="i0116"]',
+                password_input: '//*[@id="i0118"]',
+                next_button: '//*[@id="idSIButton9"]',
+
                 app_link: '//*[@id="000000004C1DDC8F"]',
                 customer_key_div: '//*[@id="main"]/div/section/form/div[1]/div[1]/div/div[4]/div[2]/div',
                 customer_secret_td: '//table/tbody/tr[@class="ng-scope"]/td[1]',
@@ -104,6 +114,10 @@ module.exports = {
                 save_button: '//button[@class="btn btn-primary" and @type="submit" and @name="AppSaveBtn"]'
             },
             Foursquare: {
+                username_input: '//*[@id="username"]',
+                password_input: '//*[@id="password"]',
+                allow_button: '//*[@id="loginFormButton"]',
+
                 app_link: '//*[@id="createdApps"]/div[1]/div/div[1]/h3/a',
                 update_button: '//*[@id="developerDetails"]/div[1]/a[1]',
                 application_uri_input: '//*[@id="applicationUri"]',
@@ -114,6 +128,10 @@ module.exports = {
                 customer_secret_pre: '//*[@id="developerDetails"]/div[1]/fieldset[1]/div[2]/div/pre/code'
             },
             Github: {
+                username_input: '//*[@id="login_field"]',
+                password_input: '//*[@id="password"]',
+                allow_button: '.btn.btn-primary.btn-block',
+
                 app_link: '//*[@id="js-pjax-container"]/div/div[2]/div[2]/div/div/div[1]/span[1]/a',
                 customer_key_dd: '//*[@id="js-pjax-container"]/div/div[2]/div[1]/div[3]/div/div/dl/dd[1]',
                 customer_secret_dd: '//*[@id="js-pjax-container"]/div/div[2]/div[1]/div[3]/div/div/dl/dd[2]',

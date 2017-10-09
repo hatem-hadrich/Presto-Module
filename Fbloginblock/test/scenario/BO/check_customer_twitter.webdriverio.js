@@ -10,8 +10,7 @@ describe('Check twitter customer in back office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -35,10 +34,14 @@ describe('Check twitter customer in back office', function() {
             this.client
                 .waitForExist(this.selector.BO.CustomersPage.customer_subtab, 90000)
                 .click(this.selector.BO.CustomersPage.customer_subtab)
+                .pause(3000)
+                .getText(this.selector.BO.CustomersPage.number_of_customer).then(function (value) {
+                global.number_of_customers = parseInt(value);
+            })
                 .call(done);
         });
 
-        if(global.number_of_customer >= 0) {
+        if(global.number_of_customers >= 1) {
             it('should filter the list by address email', function (done) {
                 this.client
                     .waitForExist(this.selector.BO.CustomersPage.customer_address_email_input, 90000)

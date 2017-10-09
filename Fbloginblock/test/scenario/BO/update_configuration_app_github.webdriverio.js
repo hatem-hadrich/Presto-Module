@@ -12,8 +12,7 @@ describe('Configuration app of github in back office', function() {
         this.external = externals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -36,8 +35,6 @@ describe('Configuration app of github in back office', function() {
         it('should go to modules installed page', function (done) {
             this.client
                 .click(this.selector.BO.ModulesPage.modules_subtab)
-                // .waitForExist(this.selector.modules_installed)
-                // .click(this.selector.modules_installed)
                 .waitForExist(this.selector.BO.ModulesPage.page_loaded, 90000)
                 .call(done);
         });
@@ -82,12 +79,10 @@ describe('Configuration app of github in back office', function() {
                 .waitForExist(this.selector.BO.Github.home_page_url_input, 90000)
                 .getAttribute(this.selector.BO.Github.home_page_url_input, 'value').then(function (url) {
                 global.home_page = url;
-                console.log(global.home_page)
             })
                 .waitForExist(this.selector.BO.Github.callback_url_input, 90000)
                 .getAttribute(this.selector.BO.Github.callback_url_input, 'value').then(function (url) {
                 global.callback_url = url;
-                console.log(global.callback_url)
             })
                 .waitForExist(this.selector.BO.Github.developers_link, 90000)
                 .click(this.selector.BO.Github.developers_link)
@@ -131,12 +126,10 @@ describe('Configuration app of github in back office', function() {
                 .waitForExist(this.external.FO.Github.customer_key_dd, 90000)
                 .getText(this.external.FO.Github.customer_key_dd).then(function (key) {
                 global.github_customer_key = key;
-                console.log(global.github_customer_key)
             })
                 .waitForExist(this.external.FO.Github.customer_secret_dd, 90000)
                 .getText(this.external.FO.Github.customer_secret_dd).then(function (secret) {
                 global.github_customer_secret = secret;
-                console.log(global.github_customer_secret)
             })
                 .moveToObject(this.external.FO.Github.update_button, 90000)
                 .waitForExist(this.external.FO.Github.application_url_input, 90000)

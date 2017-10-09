@@ -12,8 +12,7 @@ describe('Configuration app of microsoft in back office', function() {
         this.external = externals.selector;
         this.client.call(done);
     });
-    process.on('uncaughtException', common.take_screenshot);
-    process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -36,8 +35,6 @@ describe('Configuration app of microsoft in back office', function() {
         it('should go to modules installed page', function (done) {
             this.client
                 .click(this.selector.BO.ModulesPage.modules_subtab)
-                // .waitForExist(this.selector.modules_installed)
-                // .click(this.selector.modules_installed)
                 .waitForExist(this.selector.BO.ModulesPage.page_loaded, 90000)
                 .call(done);
         });
@@ -136,13 +133,11 @@ describe('Configuration app of microsoft in back office', function() {
                 .moveToObject(this.external.FO.Microsoft.customer_key_div)
                 .getText(this.external.FO.Microsoft.customer_key_div).then(function (key) {
                 global.microsoft_customer_key = key;
-                console.log(global.microsoft_customer_key);
             })
                 .pause(5000)
                 .moveToObject(this.external.FO.Microsoft.customer_secret_td)
                 .getText(this.external.FO.Microsoft.customer_secret_td).then(function (secret) {
                 global.microsoft_customer_secret = secret[1];
-                console.log(global.microsoft_customer_secret);
             })
                 .moveToObject(this.external.FO.Microsoft.add_profile_button, 90000)
                 .setValue(this.external.FO.Microsoft.redirect_url_input, global.redirect_url)
