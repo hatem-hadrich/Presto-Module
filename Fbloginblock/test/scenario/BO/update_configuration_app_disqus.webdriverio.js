@@ -12,8 +12,7 @@ describe('Configuration app of disqus in back office', function() {
         this.external = externals.selector;
         this.client.call(done);
     });
-    // process.on('uncaughtException', common.take_screenshot);
-    // process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -36,8 +35,6 @@ describe('Configuration app of disqus in back office', function() {
         it('should go to modules installed page', function (done) {
             this.client
                 .click(this.selector.BO.ModulesPage.modules_subtab)
-                // .waitForExist(this.selector.modules_installed)
-                // .click(this.selector.modules_installed)
                 .waitForExist(this.selector.BO.ModulesPage.page_loaded, 90000)
                 .call(done);
         });
@@ -81,17 +78,14 @@ describe('Configuration app of disqus in back office', function() {
                 .waitForExist(this.selector.BO.Disqus.website_url_input, 90000)
                 .getAttribute(this.selector.BO.Disqus.website_url_input, 'value').then(function (url) {
                 global.website_url = url;
-                console.log(global.website_url)
             })
                 .waitForExist(this.selector.BO.Disqus.callback_url_input, 90000)
                 .getAttribute(this.selector.BO.Disqus.callback_url_input, 'value').then(function (url) {
                 global.callback_url = url;
-                console.log(global.callback_url)
             })
                 .waitForExist(this.selector.BO.Disqus.terms_of_service_url_input, 90000)
                 .getAttribute(this.selector.BO.Disqus.terms_of_service_url_input, 'value').then(function (url) {
                 global.terms_of_service_url = url;
-                console.log(global.terms_of_service_url)
             })
                 .waitForExist(this.selector.BO.Disqus.developers_link, 90000)
                 .click(this.selector.BO.Disqus.developers_link)

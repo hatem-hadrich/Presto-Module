@@ -48,28 +48,23 @@ describe('Connecting with github in front office', function() {
 
         it('should connecting with github account', function (done) {
             global.fctname = this.test.title;
-            this.client
-                .waitForExist(this.selector.FO.Github.username_input, 90000)
-                .setValue(this.selector.FO.Github.username_input, 'prestotests+github@gmail.com')
-                .setValue(this.selector.FO.Github.password_input, 'presto_tests1')
-                .waitForExist(this.selector.FO.Github.allow_button, 90000)
-                .click(this.selector.FO.Github.allow_button)
-                .pause(2000)
-                .call(done);
-        });
-
-    });
-
-    describe('Access to the Front Office', function() {
-        it('should open the shop', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .windowHandles().then(function (handles) {
-                this.close(handles.value[handles.value.length - 1]);
-                return this.switchTab(handles.value[0]);
-            })
-                .call(done);
-
+            if(this.client.isExisting(this.selector.FO.Github.username_input) === true){
+                this.client
+                    .waitForExist(this.selector.FO.Github.username_input, 90000)
+                    .setValue(this.selector.FO.Github.username_input, 'prestotests+github@gmail.com')
+                    .setValue(this.selector.FO.Github.password_input, 'presto_tests1')
+                    .waitForExist(this.selector.FO.Github.allow_button, 90000)
+                    .click(this.selector.FO.Github.allow_button)
+                    .pause(2000)
+                    .call(done);
+            }else{
+                this.client
+                    .windowHandles().then(function (handles) {
+                        this.close(handles.value[handles.value.length - 1]);
+                        return this.switchTab(handles.value[0]);
+                    })
+                    .call(done);
+            }
         });
         it('should check the connection', function (done) {
             global.fctname = this.test.title;
@@ -77,11 +72,12 @@ describe('Connecting with github in front office', function() {
                 .pause(2000)
                 .waitForExist(this.selector.FO.Github.user_connected_span, 90000)
                 .getText(this.selector.FO.Github.user_connected_span).then(function (user) {
-                should(user).be.equal('prestotests prestotests');
-            })
+                    should(user).be.equal('prestotests prestotests');
+                })
                 .call(done);
 
         });
+
     });
 
     describe('Log out in Front Office', function (done) {

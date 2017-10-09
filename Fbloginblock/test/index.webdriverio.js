@@ -62,29 +62,29 @@ describe('Allscenario', function(){
     // require('./scenario/BO/check_customer_microsoft.webdriverio');
     //
     // /*--> Connection with Foursquare */ //OK
-    require('./scenario/BO/update_configuration_app_foursquare.webdriverio');
-    require('./scenario/FO/connect_with_foursquare.webdriverio');
-    require('./scenario/BO/check_customer_foursquare.webdriverio');
+    //require('./scenario/BO/update_configuration_app_foursquare.webdriverio');
+    //require('./scenario/FO/connect_with_foursquare.webdriverio');
+    //require('./scenario/BO/check_customer_foursquare.webdriverio');
     //
-    // /*--> Connection with Github */
+    // /*--> Connection with Github */ //OK
     // require('./scenario/BO/update_configuration_app_github.webdriverio');
     // require('./scenario/FO/connect_with_github.webdriverio');
     // require('./scenario/BO/check_customer_github.webdriverio');
     //
-    // /*--> Connection with Disqus */
+    // /*--> Connection with Disqus */ //OK
     // require('./scenario/BO/update_configuration_app_disqus.webdriverio');
     // require('./scenario/FO/connect_with_disqus.webdriverio');
     // require('./scenario/BO/check_customer_disqus.webdriverio');
     //
-    // /*--> Connection with Dropbox */
+    // /*--> Connection with Dropbox */ error
     // require('./scenario/BO/update_configuration_app_dropbox.webdriverio');
     // require('./scenario/FO/connect_with_dropbox.webdriverio');
     // require('./scenario/BO/check_customer_dropbox.webdriverio');
     //
     // /*--> Connection with Wordpress */
-    // require('./scenario/BO/update_configuration_app_wordpress.webdriverio');
-    // require('./scenario/FO/connect_with_wordpress.webdriverio');
-    // require('./scenario/BO/check_customer_wordpress.webdriverio');
+     require('./scenario/BO/update_configuration_app_wordpress.webdriverio');
+     require('./scenario/FO/connect_with_wordpress.webdriverio');
+     require('./scenario/BO/check_customer_wordpress.webdriverio');
 
     /*--> Connection with Tumblr */ //@TODO
     // require('./scenario/BO/update_configuration_app_tumblr.webdriverio');

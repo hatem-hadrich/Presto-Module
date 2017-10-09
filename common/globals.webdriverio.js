@@ -81,7 +81,7 @@ module.exports = {
                 number_of_customer: '//*[@id="form-customer"]/div/div[1]/span[1]',
                 customer_subtab: '#subtab-AdminParentCustomer',
                 customer_address_email_input: '//*[@id="form-customer"]/div/div[2]/table/thead/tr[2]/th[7]/input',
-                customer_search_button: '#submitFilterButtoncustomer',
+                customer_search_button: '#submitFilterButtoncustomer'
             },
 
             //Upela module selectorl
@@ -178,7 +178,7 @@ module.exports = {
                 developers_link: '//*[@id="google"]/div/div/fieldset/div[9]/a',
                 customer_key_input: '//*[@id="oci"]',
                 customer_secret_input: '//*[@id="ocs"]',
-                save_button: '//*[@id="module_form_submit_btn_21"]',
+                save_button: '//*[@id="module_form_submit_btn_21"]'
             },
             Pinterest: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -188,10 +188,10 @@ module.exports = {
                 redirect_url_input: '//*[@id="pinterest"]/div/div/fieldset/div[9]/input',
                 customer_key_input: '//*[@id="pici"]',
                 customer_secret_input: '//*[@id="pics"]',
-                save_button: '//*[@id="module_form_submit_btn_32"]',
+                save_button: '//*[@id="module_form_submit_btn_32"]'
             },
             Yahoo: {
-                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img'
             },
             Paypal: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -203,7 +203,7 @@ module.exports = {
                 log_inti_dashboard_button: '//*[@id="header"]/div[2]/div[2]/span/div/a',
                 customer_key_input: '//*[@id="clientid"]',
                 customer_secret_input: '//*[@id="psecret"]',
-                save_button: '//*[@id="module_form_submit_btn_23"]',
+                save_button: '//*[@id="module_form_submit_btn_23"]'
             },
             Linkedin: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -212,7 +212,7 @@ module.exports = {
                 developers_link: '//*[@id="linkedin"]/div/div/fieldset/div[3]/a',
                 customer_key_input: '//*[@id="lapikey"]',
                 customer_secret_input: '//*[@id="lsecret"]',
-                save_button: '//*[@id="module_form_submit_btn_24"]',
+                save_button: '//*[@id="module_form_submit_btn_24"]'
             },
             Microsoft: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -221,7 +221,7 @@ module.exports = {
                 developers_link: '//*[@id="hotmail"]/div/div/fieldset/div[3]/a',
                 customer_key_input: '//*[@id="mclientid"]',
                 customer_secret_input: '//*[@id="mclientsecret"]',
-                save_button: '//*[@id="module_form_submit_btn_25"]',
+                save_button: '//*[@id="module_form_submit_btn_25"]'
             },
             Foursquare: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -232,7 +232,7 @@ module.exports = {
                 developers_link: '//*[@id="foursquare"]/div/div/fieldset/div[3]/a',
                 customer_key_input: '//*[@id="fsci"]',
                 customer_secret_input: '//*[@id="fscs"]',
-                save_button: '//*[@id="module_form_submit_btn_26"]',
+                save_button: '//*[@id="module_form_submit_btn_26"]'
             },
             Github: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -242,7 +242,7 @@ module.exports = {
                 callback_url_input: '//*[@id="github"]/div/div/fieldset/div[7]/input',
                 customer_key_input: '//*[@id="gici"]',
                 customer_secret_input: '//*[@id="gics"]',
-                save_button: '//*[@id="module_form_submit_btn_27"]',
+                save_button: '//*[@id="module_form_submit_btn_27"]'
             },
             Disqus: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -253,7 +253,7 @@ module.exports = {
                 terms_of_service_url_input: '//*[@id="disqus"]/div/div/fieldset/div[16]/input',
                 api_key_input: '//*[@id="dci"]',
                 api_secret_input: '//*[@id="dcs"]',
-                save_button: '//*[@id="module_form_submit_btn_28"]',
+                save_button: '//*[@id="module_form_submit_btn_28"]'
             },
             Dropbox: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -262,7 +262,7 @@ module.exports = {
                 developers_link: '//*[@id="dropbox"]/div/div/fieldset/div[3]/a',
                 api_key_input: '//*[@id="dbci"]',
                 api_secret_input: '//*[@id="dbcs"]',
-                save_button: '//*[@id="module_form_submit_btn_29"]',
+                save_button: '//*[@id="module_form_submit_btn_29"]'
             },
             Wordpress: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -273,7 +273,7 @@ module.exports = {
                 javascript_origins_input: '//*[@id="wordpress"]/div/div/fieldset/div[9]/input',
                 customer_key_input: '//*[@id="wci"]',
                 customer_secret_input: '//*[@id="wcs"]',
-                save_button: '//*[@id="module_form_submit_btn_30"]',
+                save_button: '//*[@id="module_form_submit_btn_30"]'
             },
             Tumblr: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -283,7 +283,7 @@ module.exports = {
                 callback_url_input: '//*[@id="tumblr"]/div/div/fieldset/div[8]/input',
                 customer_key_input: '//*[@id="tuci"]',
                 customer_secret_input: '//*[@id="tucs"]',
-                save_button: '//*[@id="module_form_submit_btn_31"]',
+                save_button: '//*[@id="module_form_submit_btn_31"]'
             },
             Vkontakte: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
@@ -292,7 +292,7 @@ module.exports = {
                 site_address_input: '//*[@id="vkontakte"]/div/div/fieldset/div[6]/input',
                 customer_key_input: '//*[@id="vci"]',
                 customer_secret_input: '//*[@id="vcs"]',
-                save_button: '//*[@id="module_form_submit_btn_33"]',
+                save_button: '//*[@id="module_form_submit_btn_33"]'
             }
         },
 
@@ -305,7 +305,7 @@ module.exports = {
 
                 desktop_login:'//*[@id="_desktop_logo"]/a',
                 cookie_banner_close_button:'//*[@id="checkout"]/div/a',
-                clickOutSide: '//*[@id="index"]',
+                clickOutSide: '//*[@id="index"]'
             },
 
             //Access page selectors
@@ -491,6 +491,7 @@ module.exports = {
                 username_input: '//*[@id="username"]',
                 password_input: '//*[@id="password"]',
                 allow_button: '.btn',
+                accept_button: '.btn.main',
                 user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
             },
             Dropbox: {
