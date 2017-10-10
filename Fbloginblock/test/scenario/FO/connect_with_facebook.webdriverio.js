@@ -51,8 +51,8 @@ describe('Connecting with facebook in front office', function() {
                 this.client
                     .pause(3000)
                     .waitForVisible(this.selector.FO.Facebook.username_input, 90000)
-                    .setValue(this.selector.FO.Facebook.username_input, 'haptou28@gmail.com')
-                    .setValue(this.selector.FO.Facebook.password_input, 'shinchikudohatemhadrich14091989')
+                    .setValue(this.selector.FO.Facebook.username_input, '************************')
+                    .setValue(this.selector.FO.Facebook.password_input, '************************')
                     .waitForExist(this.selector.FO.Facebook.login_button, 90000)
                     .click(this.selector.FO.Facebook.login_button)
                     .pause(5000)
