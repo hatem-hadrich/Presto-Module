@@ -39,7 +39,7 @@ describe('Check facebook customer in back office', function() {
         it('should filter the list by address email', function (done) {
             this.client
                 .waitForExist(this.selector.BO.CustomersPage.customer_address_email_input, 90000)
-                .setValue(this.selector.BO.CustomersPage.customer_address_email_input, 'haptou28@gmail.com')
+                .setValue(this.selector.BO.CustomersPage.customer_address_email_input, '*******************')
                 .call(done);
         });
         it('should click on search button', function (done) {
