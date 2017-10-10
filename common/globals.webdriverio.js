@@ -146,7 +146,13 @@ module.exports = {
             },
             //@TODO
             Facebook: {
-
+                logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[6]/img',
+                config_button: '//*[@id="navtabs16"]/li[4]/a',
+                developers_link: '//*[@id="facebook"]/div/div/fieldset/div[3]/a',
+                site_url_input: '//*[@id="facebook"]/div/div/fieldset/div[8]/input',
+                customer_key_input: '//*[@id="appid"]',
+                customer_secret_input: '//*[@id="secret"]',
+                save_button: '//*[@id="module_form_submit_btn_18"]'
             },
             Twitter: {
                 logo_customer_page: '//*[@id="form-customer"]/div/div[2]/table/tbody/tr/td[5]/img',
@@ -199,7 +205,6 @@ module.exports = {
                 privacy_policy_url_input: '//*[@id="paypal"]/div/div/fieldset/div[11]/input',
                 user_agreement_url_input: '//*[@id="paypal"]/div/div/fieldset/div[12]/input',
                 developers_link: '//*[@id="paypal"]/div/div/fieldset/div[3]/a',
-                log_inti_dashboard_button: '//*[@id="header"]/div[2]/div[2]/span/div/a',
                 customer_key_input: '//*[@id="clientid"]',
                 customer_secret_input: '//*[@id="psecret"]',
                 save_button: '//*[@id="module_form_submit_btn_23"]'
@@ -367,7 +372,12 @@ module.exports = {
             Facebook: {
                 first_facebook_logo: '#follow-teaser > div > a.facebook.custom-social-button-all.custom-social-button-1 > i',
                 second_facebook_logo: '#_desktop_user_info > div > span > a.facebook.custom-social-button-all.custom-social-button-4 > i',
-                third_facebook_logo: '#follow-teaser-footer > div > a.facebook.custom-social-button-all.custom-social-button-1 > i'
+                third_facebook_logo: '#follow-teaser-footer > div > a.facebook.custom-social-button-all.custom-social-button-1 > i',
+
+                username_input: '//*[@id="email"]',
+                password_input: '//*[@id="pass"]',
+                login_button: '//*[@id="loginbutton"]',
+                user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
             },
             Twitter: {
                 first_twitter_logo: '#follow-teaser > div > a.twitter.custom-social-button-all.custom-social-button-1 > i',

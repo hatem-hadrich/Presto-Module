@@ -3,8 +3,6 @@ var should = require('should');
 var common = require('../../../../common/common.webdriverio');
 var globals = require('../../../../common/globals.webdriverio.js');
 
-var existing_username_input = false;
-
 describe('Connecting with microsoft in front office', function() {
     common.initMocha.call(this);
 

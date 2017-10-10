@@ -3,7 +3,7 @@ var should = require('should');
 var common = require('../../../../common/common.webdriverio');
 var globals = require('../../../../common/globals.webdriverio.js');
 
-describe('Check google customer in back office', function() {
+describe('Check facebook customer in back office', function() {
     common.initMocha.call(this);
 
     before(function (done) {
@@ -39,7 +39,7 @@ describe('Check google customer in back office', function() {
         it('should filter the list by address email', function (done) {
             this.client
                 .waitForExist(this.selector.BO.CustomersPage.customer_address_email_input, 90000)
-                .setValue(this.selector.BO.CustomersPage.customer_address_email_input, 'prestotests@gmail.com')
+                .setValue(this.selector.BO.CustomersPage.customer_address_email_input, 'haptou28@gmail.com')
                 .call(done);
         });
         it('should click on search button', function (done) {
@@ -50,15 +50,15 @@ describe('Check google customer in back office', function() {
                 .call(done);
         });
 
-        it('should check new google customer', function (done) {
+        it('should check new facebook customer', function (done) {
             this.client
-                .waitForExist(this.selector.BO.Google.logo_customer_page, 90000)
-                .moveToObject(this.selector.BO.Google.logo_customer_page)
-                .getAttribute(this.selector.BO.Google.logo_customer_page, 'title').then(function (title) {
-                should(title).be.equal('Google');
+                .waitForExist(this.selector.BO.Facebook.logo_customer_page, 90000)
+                .moveToObject(this.selector.BO.Facebook.logo_customer_page)
+                .getAttribute(this.selector.BO.Facebook.logo_customer_page, 'title').then(function (title) {
+                should(title).be.equal('Facebook');
             })
-                .getAttribute(this.selector.BO.Google.logo_customer_page, 'alt').then(function (alt) {
-                should(alt).be.equal('Google');
+                .getAttribute(this.selector.BO.Facebook.logo_customer_page, 'alt').then(function (alt) {
+                should(alt).be.equal('Facebook');
             })
                 .call(done);
         });

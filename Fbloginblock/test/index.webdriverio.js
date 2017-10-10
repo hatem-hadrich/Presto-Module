@@ -31,7 +31,7 @@ describe('Allscenario', function(){
     require('./scenario/BO/check_customer_twitter.webdriverio');
 
     /*--> Connection with Amazon */ //@TODO
-    // require('./scenario/BO/update_configuration_app_google.webdriverio');
+    // require('./scenario/BO/update_configuration_app_amazon.webdriverio');
     // require('./scenario/FO/connect_with_amazon.webdriverio');
     // require('./scenario/BO/check_customer_amazon.webdriverio');
 

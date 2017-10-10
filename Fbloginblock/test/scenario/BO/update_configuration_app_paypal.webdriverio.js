@@ -91,6 +91,7 @@ describe('Configuration app of paypal in back office', function() {
             })
                 .waitForExist(this.selector.BO.Paypal.developers_link, 90000)
                 .click(this.selector.BO.Paypal.developers_link)
+                .pause(3000)
                 .call(done);
         });
 
@@ -100,8 +101,8 @@ describe('Configuration app of paypal in back office', function() {
                 .getTabIds().then(function (handles) {
                 return this.switchTab(handles[handles.length - 1])
             })
-                .waitForExist(this.external.FO.Paypal.log_inti_dashboard_button, 90000)
-                .click(this.external.FO.Paypal.log_inti_dashboard_button)
+                .waitForExist(this.external.FO.Paypal.log_into_dashboard_button, 90000)
+                .click(this.external.FO.Paypal.log_into_dashboard_button)
                 .call(done);
         });
 
@@ -130,7 +131,6 @@ describe('Configuration app of paypal in back office', function() {
                 .moveToObject(this.external.FO.Paypal.customer_key, 90000)
                 .getText(this.external.FO.Paypal.customer_key).then(function (id) {
                 global.paypal_customer_key = id;
-                console.log(global.paypal_customer_key);
             })
                 .waitForExist(this.external.FO.Paypal.show_secret_button, 90000)
                 .click(this.external.FO.Paypal.show_secret_button)
@@ -138,7 +138,6 @@ describe('Configuration app of paypal in back office', function() {
                 .moveToObject(this.external.FO.Paypal.customer_secret)
                 .getText(this.external.FO.Paypal.customer_secret).then(function (value) {
                 global.paypal_customer_secret = value;
-                console.log(global.paypal_customer_secret);
             })
                 .call(done);
         });

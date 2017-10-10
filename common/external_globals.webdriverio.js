@@ -11,7 +11,16 @@ module.exports = {
         FO: {
             //@TODO
             Facebook: {
-
+                username_input: '//*[@id="email"]',
+                password_input: '//*[@id="pass"]',
+                signin_button: '//*[@id="loginbutton"]',
+                app_link : '//*[@id="js_en"]/span',
+                customer_api_key: '//*[@id="u_0_5t"]/div[1]/div/table/tbody/tr[1]/td[1]/div/div',
+                show_secret_button: '//*[@id="u_0_5u"]/div/button',
+                customer_api_secret: '//*[@id="u_0_5u"]/div/span',
+                settings_menu: '//*[@id="u_0_a"]',
+                site_url_input: '//*[@id="u_0_7i"]/input',
+                save_button: '//button[@name="save_changes"]'
             },
             Twitter: {
                 signein_button: '//*[@id="gaz-content-body"]/div[2]/div/a',
@@ -72,8 +81,13 @@ module.exports = {
 
             },
             Paypal: {
+                username_input: '//*[@id="email"]',
+                password_input: '//*[@id="password"]',
+                login_button: '//*[@id="btnLogin"]',
+
                 manage_api_button: '//*[@id="main"]/div/div[2]/div/a[3]',
                 app_link: '//div[@class="content-wrapper"]/table/tbody/tr[2]/td[1]/a',
+                log_into_dashboard_button: '//*[@id="header"]/div[2]/div[2]/span/div/a',
                 show_secret_button: '//*[@id="credentialsLive-sb-view"]/div/div/div[2]/div[3]/div[2]/p',
                 show_return_url_button: '//*[@id="returnUrls"]',
                 customer_key: '//*[@id="credentials-sb"]',

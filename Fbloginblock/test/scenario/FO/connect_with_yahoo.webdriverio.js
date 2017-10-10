@@ -10,8 +10,7 @@ describe('Connecting with yahoo in front office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    // process.on('uncaughtException', common.take_screenshot);
-    // process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Access to the Front Office', function() {

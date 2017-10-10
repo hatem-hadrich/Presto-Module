@@ -48,26 +48,22 @@ describe('Connecting with paypal in front office', function() {
 
         it('should connecting with paypal account', function (done) {
             global.fctname = this.test.title;
-            this.client
-                .waitForExist(this.selector.FO.Paypal.username_input, 90000)
-                .setValue(this.selector.FO.Paypal.username_input, 'prestotests+paypal@gmail.com')
-                .setValue(this.selector.FO.Paypal.password_input, 'presto_tests')
-                .waitForExist(this.selector.FO.Paypal.login_button, 90000)
-                .click(this.selector.FO.Paypal.login_button)
-                .call(done);
-        });
-
-    });
-
-    describe('Access to the Front Office', function() {
-        it('should open the shop', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .windowHandles().then(function (handles) {
-                this.close(handles.value[handles.value.length - 1]);
-                return this.switchTab(handles.value[0]);
-            })
-                .call(done);
+            if(this.client.isExisting(this.selector.FO.Paypal.username_input) === true){
+                this.client
+                    .waitForExist(this.selector.FO.Paypal.username_input, 90000)
+                    .setValue(this.selector.FO.Paypal.username_input, 'prestotests+paypal@gmail.com')
+                    .setValue(this.selector.FO.Paypal.password_input, 'presto_tests')
+                    .waitForExist(this.selector.FO.Paypal.login_button, 90000)
+                    .click(this.selector.FO.Paypal.login_button)
+                    .call(done);
+            }else{
+                this.client
+                    .windowHandles().then(function (handles) {
+                    this.close(handles.value[handles.value.length - 1]);
+                    return this.switchTab(handles.value[0]);
+                })
+                    .call(done);
+            }
         });
         it('should check the connection', function (done) {
             global.fctname = this.test.title;
@@ -78,6 +74,19 @@ describe('Connecting with paypal in front office', function() {
                 .getText(this.selector.FO.Paypal.user_connected_span).then(function (user) {
                 should(user).be.equal('Presto Tests');
             })
+                .call(done);
+
+        });
+    });
+
+
+    describe('Log out in Front Office', function (done) {
+        it('should logout successfully in FO', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.FO.AccessPage.logoutFO, 90000)
+                .click(this.selector.FO.AccessPage.logoutFO)
+                .waitForExist(this.selector.FO.AccessPage.access_loginFO, 90000)
                 .call(done);
 
         });

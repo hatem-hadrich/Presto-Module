@@ -59,16 +59,15 @@ describe('Connecting with foursquare in front office', function() {
                     .call(done);
             }else{
                 this.client
+                    .getTabIds().then(function (handles) {
+                    return this.switchTab(handles[0]);
+                })
                     .call(done);
             }
         });
         it('should check the connection', function (done) {
             global.fctname = this.test.title;
             this.client
-                .windowHandles().then(function (handles) {
-                this.close(handles.value[handles.value.length - 1]);
-                return this.switchTab(handles.value[0]);
-            })
                 .pause(5000)
                 .waitForExist(this.selector.FO.Foursquare.user_connected_span, 90000)
                 .getText(this.selector.FO.Foursquare.user_connected_span).then(function (user) {

@@ -92,7 +92,7 @@ describe('Connecting with pinterest in front office', function() {
                     console.log(value);
                 should(value).be.equal("Password has been sent to your mailbox: prestotests+pinterest@gmail.com")
             })
-                .click(this.selector.FO.Common.clickOutSide)
+                .url('https://' + URL)
                 .call(done);
 
         });
