@@ -65,7 +65,6 @@ module.exports = {
                 installed_modules_tabs: '(//div[@class="page-head-tabs"]/a)[2]',
                 module_number_span: '[class="module-sorting-search-wording"]',
                 number_of_module_found:'//*[@id="main-div"]/div[3]/div/div/div[2]/div/div[7]/span[1]',
-                //configuration_button:'//*[@id="modules-list-container-all"]/div[1]/div/div/div[5]/div[2]/form/button',
                 configuration_button:'//*[@id="modules-list-container-all"]/div/div/div/div[5]/div[2]/form/button',
                 module_tech_name: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]',
                 install_module_button: '//div[@data-tech-name="' + module_tech_name + '" and not(@style)]//button[@data-confirm_modal="module-modal-confirm-' + module_tech_name + '-install"]',
@@ -318,7 +317,6 @@ module.exports = {
                 loginFO_input: '//*[@id="login-form"]/section/div[1]/div[1]/input',
                 passwordFO_input: '//*[@id="login-form"]/section/div[2]/div[1]/div/input',
                 loginFO_button: '//*[@id="login-form"]/footer/button',
-                //logoutFO: '.logout'
                 logoutFO: '//*[@id="_desktop_user_info"]/div/a[1]'
             },
 
@@ -416,7 +414,7 @@ module.exports = {
                 password_input: '//input[@type="password" and @name="password"]',
                 login_button: '.red.SignupButton.active',
                 allow_button: '//*[@id="dialog_footer"]/button[2]',
-                linked_email_input: '//*[@id="api-email"]',
+                email_input: '//*[@id="api-email"]',
                 send_button: '//*[@id="fb-con-wrapper"]/a[2]',
                 check_sent_email_p: '//*[@id="fb-con-wrapper"]/p',
                 user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
@@ -524,7 +522,11 @@ module.exports = {
                 username_input: '//*[@id="signup_determine_email"]',
                 password_input: '//*[@id="signup_password"]',
                 next_button: '//*[@id="signup_forms_submit"]/span[2]',
-                allow_button: '//*[@id="approve"]',
+                allow_button: '.chrome.green.allow',
+                linked_modale: '#fb-con-wrapper',
+                email_input: '//*[@id="api-email"]',
+                send_button: '//*[@id="fb-con-wrapper"]/a[2]',
+                check_sent_email_p: '//*[@id="fb-con-wrapper"]/p',
                 user_connected_span: '//*[@id="_desktop_user_info"]/div/a[2]/span'
             },
             Vkontakte: {

@@ -61,10 +61,11 @@ module.exports = {
                 app_link: '//*[@id="app"]/div/section/div/h2/a',
                 app_id_input: '//*[@id="app"]/div/div[2]/header/div[2]/div/div[1]/input',
                 app_secret_input: '//*[@id="app"]/div/div[2]/header/div[2]/div/div[2]/input',
-                show_button: '//*[@id="app"]/div/div[2]/header/div[2]/div/div[2]/div/button',
+                show_button: '.button.tiny',
                 site_url_input: '//*[@id="app"]/div/div[2]/section[3]/div/div[1]/label[1]/input',
                 redirect_url_input: '//*[@id="app"]/div/div[2]/section[3]/div/div[1]/label[2]/div/div/input',
-                delete_redirect_url_icon: '//*[@id="app"]/div/div[2]/section[3]/div/div[1]/label[2]/div/ul/li/div/span[2]'
+                delete_redirect_url_icon: '//*[@id="app"]/div/div[2]/section[3]/div/div[1]/label[2]/div/ul/li/div/span[2]',
+                save_button: '.small.primary.two.columns'
             },
             //@TODO
             Yahoo: {
@@ -165,6 +166,10 @@ module.exports = {
                 app_secret_div: '//*[@id="config-content"]/table/tbody/tr[6]/td[2]/div'
             },
             Wordpress: {
+                username_input: '//*[@id="usernameOrEmail"]',
+                password_input: '//*[@id="password"]',
+                login_button: '.button.form-button.is-primary',
+
                 app_link: '//*[@id="content"]/ul/li/div/h2/a',
                 manage_settings_subtab: '//*[@id="content"]/div[2]/div[2]/ul/li[1]/a',
                 customer_key_td: '//*[@id="content"]/div[3]/div[2]/table/tbody/tr[1]/td',
@@ -174,9 +179,11 @@ module.exports = {
                 javascript_origins_input: '//*[@id="javascript_origins"]',
                 update_button: '.button-primary'
             },
-
-            //@TODO:configure app tumblr
             Tumblr: {
+                username_input: '//*[@id="signup_determine_email"]',
+                password_input: '//*[@id="signup_password"]',
+                next_button: '//*[@id="signup_forms_submit"]/span[2]',
+
                 signin_button: '//*[@id="signup_forms_submit"]/span[6]',
                 app_link: '//*[@id="dashboard_account_oauth_apps"]/div[4]/div/div/div[2]/a[2]',
                 website_url_input:'//*[@id="oac_url"]',
@@ -186,7 +193,6 @@ module.exports = {
                 customer_secret:'//*[@id="secret"]',
                 show_secret_button:'//*[@id="secret_toggle"]'
             },
-            //@TODO:configure app vkontakte
             Vkontakte: {
                 username_input: '//*[@id="email"]',
                 password_input: '//*[@id="pass"]',

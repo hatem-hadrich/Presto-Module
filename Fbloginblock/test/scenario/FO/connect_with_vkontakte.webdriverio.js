@@ -10,8 +10,7 @@ describe('Connecting with vkontakte in front office', function() {
         this.selector = globals.selector;
         this.client.call(done);
     });
-    // process.on('uncaughtException', common.take_screenshot);
-    // process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Access to the Front Office', function() {
@@ -49,27 +48,22 @@ describe('Connecting with vkontakte in front office', function() {
 
         it('should connecting with vkontakte account', function (done) {
             global.fctname = this.test.title;
-            this.client
-                .waitForExist(this.selector.FO.Vkontakte.username_input, 90000)
-                .setValue(this.selector.FO.Vkontakte.username_input, 'prestotestsvkontakte@gmail.com')
-                .setValue(this.selector.FO.Vkontakte.password_input, 'presto_tests')
-                .waitForExist(this.selector.FO.Vkontakte.login_button, 90000)
-                .click(this.selector.FO.Vkontakte.login_button)
-                .call(done);
-        });
-
-    });
-
-    describe('Access to the Front Office', function() {
-        it('should open the shop', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .windowHandles().then(function (handles) {
-                this.close(handles.value[handles.value.length - 1]);
-                return this.switchTab(handles.value[0]);
-            })
-                .call(done);
-
+            if(this.client.isExisting(this.selector.FO.Vkontakte.username_input) === true){
+                this.client
+                    .waitForExist(this.selector.FO.Vkontakte.username_input, 90000)
+                    .setValue(this.selector.FO.Vkontakte.username_input, 'prestotestsvkontakte@gmail.com')
+                    .setValue(this.selector.FO.Vkontakte.password_input, 'presto_tests')
+                    .waitForExist(this.selector.FO.Vkontakte.login_button, 90000)
+                    .click(this.selector.FO.Vkontakte.login_button)
+                    .call(done);
+            }else{
+                this.client
+                    .windowHandles().then(function (handles) {
+                    this.close(handles.value[handles.value.length - 1]);
+                    return this.switchTab(handles.value[0]);
+                })
+                    .call(done);
+            }
         });
         it('should check the connection', function (done) {
             global.fctname = this.test.title;
@@ -80,6 +74,19 @@ describe('Connecting with vkontakte in front office', function() {
                 .getText(this.selector.FO.Vkontakte.user_connected_span).then(function (user) {
                 should(user).be.equal('Tests Presto');
             })
+                .call(done);
+
+        });
+
+    });
+
+    describe('Log out in Front Office', function (done) {
+        it('should logout successfully in FO', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.FO.AccessPage.logoutFO, 90000)
+                .click(this.selector.FO.AccessPage.logoutFO)
+                .waitForExist(this.selector.FO.AccessPage.access_loginFO, 90000)
                 .call(done);
 
         });

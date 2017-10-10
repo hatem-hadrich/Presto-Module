@@ -48,26 +48,25 @@ describe('Connecting with wordpress in front office', function() {
 
         it('should connecting with wordpress account', function (done) {
             global.fctname = this.test.title;
-            this.client
-                .pause(7000)
-                .waitForVisible(this.selector.FO.Wordpress.username_input, 90000)
-                .click(this.selector.FO.Wordpress.username_input)
-                .setValue(this.selector.FO.Wordpress.username_input, 'prestotests+wordpress@gmail.com')
-                .click(this.selector.FO.Wordpress.password_input)
-                .setValue(this.selector.FO.Wordpress.password_input, 'presto_tests')
-                .waitForExist(this.selector.FO.Wordpress.login_button, 90000)
-                .click(this.selector.FO.Wordpress.login_button)
-                .pause(2000)
-                .call(done);
-        });
-
-        it('should click on approve button', function (done) {
-            global.fctname = this.test.title;
-            this.client
-                .pause(3000)
-                .waitForExist(this.selector.FO.Wordpress.allow_button, 90000)
-                .click(this.selector.FO.Wordpress.allow_button)
-                .call(done);
+            if(this.client.isExisting(this.selector.FO.Wordpress.username_input) === true){
+                this.client
+                    .pause(7000)
+                    .waitForVisible(this.selector.FO.Wordpress.username_input, 90000)
+                    .click(this.selector.FO.Wordpress.username_input)
+                    .setValue(this.selector.FO.Wordpress.username_input, 'prestotests+wordpress@gmail.com')
+                    .click(this.selector.FO.Wordpress.password_input)
+                    .setValue(this.selector.FO.Wordpress.password_input, 'presto_tests')
+                    .waitForExist(this.selector.FO.Wordpress.login_button, 90000)
+                    .click(this.selector.FO.Wordpress.login_button)
+                    .pause(2000)
+                    .call(done);
+            }else{
+                this.client
+                    .pause(3000)
+                    .waitForExist(this.selector.FO.Wordpress.allow_button, 90000)
+                    .click(this.selector.FO.Wordpress.allow_button)
+                    .call(done);
+            }
         });
 
     });
@@ -91,6 +90,18 @@ describe('Connecting with wordpress in front office', function() {
                 .getText(this.selector.FO.Wordpress.user_connected_span).then(function (user) {
                 should(user).be.equal('prestotests prestotests');
             })
+                .call(done);
+
+        });
+    });
+
+    describe('Log out in Front Office', function (done) {
+        it('should logout successfully in FO', function (done) {
+            global.fctname = this.test.title;
+            this.client
+                .waitForExist(this.selector.FO.AccessPage.logoutFO, 90000)
+                .click(this.selector.FO.AccessPage.logoutFO)
+                .waitForExist(this.selector.FO.AccessPage.access_loginFO, 90000)
                 .call(done);
 
         });

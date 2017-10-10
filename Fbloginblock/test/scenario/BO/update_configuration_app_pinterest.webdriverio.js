@@ -12,8 +12,7 @@ describe('Configuration app of pinterest in back office', function() {
         this.external = externals.selector;
         this.client.call(done);
     });
-    // process.on('uncaughtException', common.take_screenshot);
-    // process.on('ReferenceError', common.take_screenshot);
+
     after(common.after);
 
     describe('Log in in Back Office', function (done) {
@@ -36,8 +35,6 @@ describe('Configuration app of pinterest in back office', function() {
         it('should go to modules installed page', function (done) {
             this.client
                 .click(this.selector.BO.ModulesPage.modules_subtab)
-                // .waitForExist(this.selector.modules_installed)
-                // .click(this.selector.modules_installed)
                 .waitForExist(this.selector.BO.ModulesPage.page_loaded, 90000)
                 .call(done);
         });
@@ -80,19 +77,21 @@ describe('Configuration app of pinterest in back office', function() {
         it('should go to pinterest developers link', function (done) {
 
             this.client
-                // .waitForExist(this.selector.pinterest.website_field_input, 90000)
-                // .getAttribute(this.selector.pinterest.website_field_input, 'value').then(function (website) {
-                //     global.website_url = website;
-                //     console.log(global.website_url);
-                // })
-                // .waitForExist(this.selector.pinterest.callback_field_input, 90000)
-                // .getAttribute(this.selector.pinterest.callback_field_input, 'value').then(function (callback) {
-                //     global.callback_url = callback;
-                //     console.log(global.callback_url);
-                // })
+                .waitForExist(this.selector.BO.Pinterest.site_url_input, 90000)
+                .getAttribute(this.selector.BO.Pinterest.site_url_input, 'value').then(function (site) {
+                    global.site_url = site;
+                })
+                .waitForExist(this.selector.BO.Pinterest.redirect_url_input, 90000)
+                .getAttribute(this.selector.BO.Pinterest.redirect_url_input, 'value').then(function (redirect) {
+                    global.redirect_url = redirect;
+                })
                 .waitForExist(this.selector.BO.Pinterest.developers_link, 90000)
+                .getAttribute(this.selector.BO.Pinterest.developers_link, 'href').then(function (href) {
+                global.pinterest_href = href;
+            })
                 .click(this.selector.BO.Pinterest.developers_link)
-                //.call(done);
+                .pause(3000)
+                .call(done);
         });
 
         it('should access to the account pinterest', function (done) {
@@ -105,6 +104,8 @@ describe('Configuration app of pinterest in back office', function() {
                 .setValue(this.external.FO.Pinterest.password_input,"presto_tests" )
                 .waitForExist(this.external.FO.Pinterest.login_button, 90000)
                 .click(this.external.FO.Pinterest.login_button)
+                .pause(5000)
+                .url(global.pinterest_href)
                 .call(done);
         });
 
@@ -112,57 +113,56 @@ describe('Configuration app of pinterest in back office', function() {
             this.client
                 .waitForExist(this.external.FO.Pinterest.app_link, 90000)
                 .click(this.external.FO.Pinterest.app_link)
+                .pause(3000)
                 .call(done);
         });
 
-        // it('should click on settings tab', function (done) {
-        //     this.client
-        //         .waitForExist(this.external.FO.Pinterest.settings_tab, 90000)
-        //         .click(this.external.FO.Pinterest.settings_tab)
-        //         .call(done);
-        // });
-        //
-        // it('should enter the website url', function (done) {
-        //     this.client
-        //         .waitForExist(this.external.FO.Pinterest.website_url_input, 90000)
-        //         .setValue(this.external.FO.Pinterest.website_url_input, global.website_url)
-        //         .call(done);
-        // });
-        //
-        // it('should enter the callback url', function (done) {
-        //     this.client
-        //         .waitForExist(this.external.FO.Pinterest.callback_url_input, 90000)
-        //         .setValue(this.external.FO.Pinterest.callback_url_input, global.callback_url)
-        //         .call(done);
-        // });
-        //
-        // it('should click on update settings button', function (done) {
-        //     this.client
-        //         .waitForExist(this.external.FO.Pinterest.update_settings_button, 90000)
-        //         .click(this.external.FO.Pinterest.update_settings_button)
-        //         .pause(5000)
-        //         .call(done);
-        // });
-        //
-        // it('should go to keys and access tokens', function (done) {
-        //     this.client
-        //         .waitForExist(this.external.FO.Pinterest.key_and_access_tokens_tab, 90000)
-        //         .click(this.external.FO.Pinterest.key_and_access_tokens_tab)
-        //         .waitForExist(this.external.FO.Pinterest.customer_api_key, 90000)
-        //         .getText(this.external.FO.Pinterest.customer_api_key).then(function(key){
-        //             global.api_key = key;
-        //             console.log(global.api_key);
-        //         })
-        //         .waitForExist(this.external.FO.Pinterest.customer_api_secret, 90000)
-        //         .getText(this.external.FO.Pinterest.customer_api_secret).then(function(secret){
-        //             global.api_secret= secret;
-        //             console.log(global.api_secret);
-        //         })
-        //         .getTabIds().then(function(handles){
-        //             return this.switchTab(handles[0])
-        //         })
-        //         .call(done);
-        // });
+        it('should click on show button', function (done) {
+            this.client
+                .waitForExist(this.external.FO.Pinterest.app_id_input, 90000)
+                .getAttribute(this.external.FO.Pinterest.app_id_input, 'value').then(function (app_id) {
+                global.customer_key = app_id;
+            })
+                .waitForExist(this.external.FO.Pinterest.show_button, 90000)
+                .click(this.external.FO.Pinterest.show_button)
+                .pause(3000)
+                .waitForExist(this.external.FO.Pinterest.app_secret_input, 90000)
+                .getAttribute(this.external.FO.Pinterest.app_secret_input, 'value').then(function (app_secret) {
+                global.customer_secret = app_secret;
+            })
+                .call(done);
+        });
+
+        it('should enter the site url', function (done) {
+            this.client
+                .moveToObject(this.external.FO.Pinterest.site_url_input, 90000)
+                .waitForExist(this.external.FO.Pinterest.site_url_input, 90000)
+                .setValue(this.external.FO.Pinterest.site_url_input, global.site_url)
+                .call(done);
+        });
+
+        it('should enter the redirect url', function (done) {
+            this.client
+                .moveToObject(this.external.FO.Pinterest.delete_redirect_url_icon)
+                .click(this.external.FO.Pinterest.delete_redirect_url_icon)
+                .pause(3000)
+                .moveToObject(this.external.FO.Pinterest.redirect_url_input, 90000)
+                .click(this.external.FO.Pinterest.redirect_url_input)
+                .keys(global.redirect_url)
+                .keys("\uE007")
+                .call(done);
+        });
+
+        it('should click on save button', function (done) {
+            this.client
+                .waitForVisible(this.external.FO.Pinterest.save_button, 90000)
+                .click(this.external.FO.Pinterest.save_button)
+                .pause(5000)
+                .getTabIds().then(function(handles){
+                return this.switchTab(handles[0])
+            })
+                .call(done);
+        });
     });
 
     describe('Return to the configuration pinterest page', function (done) {
@@ -170,8 +170,8 @@ describe('Configuration app of pinterest in back office', function() {
         it('should enter the customer key and secret', function (done) {
             this.client
                 .waitForExist(this.selector.BO.Pinterest.customer_key_input, 90000)
-                .setValue(this.selector.BO.Pinterest.customer_key_input, global.api_key)
-                .setValue(this.selector.BO.Pinterest.customer_secret_input, global.api_secret)
+                .setValue(this.selector.BO.Pinterest.customer_key_input, global.customer_key)
+                .setValue(this.selector.BO.Pinterest.customer_secret_input, global.customer_secret)
                 .call(done);
         });
 

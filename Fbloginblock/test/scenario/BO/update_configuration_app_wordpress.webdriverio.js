@@ -121,12 +121,10 @@ describe('Configuration app of wordpress in back office', function() {
                 .waitForExist(this.external.FO.Wordpress.customer_key_td, 90000)
                 .getText(this.external.FO.Wordpress.customer_key_td).then(function (key) {
                 global.wordpress_customer_key = key;
-                console.log(global.wordpress_customer_key)
             })
                 .waitForExist(this.external.FO.Wordpress.customer_secret_td, 90000)
                 .getText(this.external.FO.Wordpress.customer_secret_td).then(function (secret) {
                 global.wordpress_customer_secret = secret.substring(0, secret.lastIndexOf("Reset Key"));
-                console.log(global.wordpress_customer_secret)
             })
                 .waitForExist(this.external.FO.Wordpress.manage_settings_subtab, 90000)
                 .click(this.external.FO.Wordpress.manage_settings_subtab)

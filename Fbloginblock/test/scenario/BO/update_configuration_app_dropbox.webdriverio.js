@@ -131,7 +131,6 @@ describe('Configuration app of dropbox in back office', function() {
                 .click(this.external.FO.Dropbox.redirect_uri_add_button)
                 .pause(5000)
                 .getTabIds().then(function(handles){
-                this.close(handles[handles.length - 1]);
                 return this.switchTab(handles[0])
             })
                 .call(done);
