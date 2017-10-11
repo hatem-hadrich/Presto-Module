@@ -151,7 +151,6 @@ describe('Configuration app of microsoft in back office', function() {
                 .click(this.external.FO.Microsoft.save_button)
                 .pause(7000)
                 .getTabIds().then(function(handles){
-                    this.close(handles[handles.length - 1]);
                 return this.switchTab(handles[0])
             })
                 .call(done);

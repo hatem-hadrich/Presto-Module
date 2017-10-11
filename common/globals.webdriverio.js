@@ -328,12 +328,7 @@ module.exports = {
             //Product page selectors
             ProductPage: {
                 add_to_cart_button: '.btn.btn-primary.add-to-cart',
-                
-                product_choice:'//*[@id="content"]/section[1]/div/article[1]/div/div[1]/h1/a',
                 product_image: '#content',
-                validate_cart_choice_button:'//*[@id="add-to-cart-or-refresh"]/div[2]/div[1]/div[2]/button',
-                modal_valid_button:'//*[@id="blockcart-modal"]/div/div/div[2]/div/div[2]/div/div/a',
-
                 product_name_details: '[itemprop="name"]',
                 product_price_details: '[itemprop="price"]',
                 product_quantity_details: '#quantity_wanted',
@@ -345,17 +340,13 @@ module.exports = {
                 command_product_name: '(//div[@class="product-line-info"])[1]/a',
                 command_product_price: '//span[@class="price"]',
                 command_checkout_button: '//*[@id="main"]/div/div[2]/div[1]/div[3]/div/a',
-                checkout_step2_continue_button: '//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
-                // checkout_step2_continue_button: '//*[@id="delivery-address"]/div/footer/button',
-                checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
-                checkout_step4_payment: '//*[@id="payment-option-2"]',
                 checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
                 checkout_step4_order: '#payment-confirmation >div > button',
-                checkout_total: '//div[@class="cart-summary-line cart-total"]/span[2]',
                 order_confirmation_name: '#order-items > div > div > div.col-sm-4.col-xs-9.details > span',
                 order_confirmation_price1: '#order-items > div > table > tbody > tr:nth-child(1) > td:nth-child(2)',
-                order_confirmation_price2: '#content-hook_payment_return > div > div > div > dl > dd:nth-child(2)',
-                order_confirmation_ref: '(//div[@id="order-details"]/ul/li)[1]'
+                order_confirmation_price2: '#content-hook_payment_return > div > div > div > p > span > strong',
+                customer_support_link: '//*[@id="content-hook_payment_return"]/div/div/div/p/a',
+                order_confirmation_ref: '//*[@id="order-details"]/ul/li[1]'
             },
             
             //Cart summary selectors
@@ -363,10 +354,39 @@ module.exports = {
                 command_button_checkout: '//*[@id="main"]/div/div[2]/div[1]/div[3]/div/a',
                 checkout_step2_continue_button:'//*[@id="checkout-addresses-step"]/div/div/form/div[2]/button',
                 checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+                step3_section: '//*[@id="checkout-delivery-step"]',
                 checkout_step4_payment: '//*[@id="payment-option-2"]',
                 checkout_step4_cgv: '//input[@id="conditions_to_approve[terms-and-conditions]"]',
                 checkout_step4_order_button: '#payment-confirmation >div > button',
                 order_confirmation_text:'#content-hook_order_confirmation > div > div > div > h3 > i'
+            },
+
+            //Commande selector
+            Commande: {
+                connect_tab: '//*[@id="checkout-personal-information-step"]/div/ul/li[3]/a',
+                address_input: '//*[@id="delivery-address"]/div/section/div[5]/div[1]/input',
+                post_code_input: '//*[@id="delivery-address"]/div/section/div[7]/div[1]/input',
+                city_input: '//*[@id="delivery-address"]/div/section/div[8]/div[1]/input',
+                checkout_step2_continue_button: '//*[@id="delivery-address"]/div/footer/button',
+                checkout_step3_continue_button: '//*[@id="js-delivery"]/button',
+                footer: '//*[@id="footer"]',
+                payment_option_radio: '//*[@id="payment-option-1"]',
+                first_facebook_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[1]',
+                first_twitter_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[2]',
+                first_amazon_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[3]',
+                first_google_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[4]',
+                first_pinterest_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[5]',
+                first_yahoo_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[6]',
+                first_paypal_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[7]',
+                first_linkedin_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[8]',
+                first_microsoft_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[9]',
+                first_foursquare_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[10]',
+                first_github_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[11]',
+                first_disqus_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[12]',
+                first_dropbox_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[13]',
+                first_wordpress_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[14]',
+                first_tumblr_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[15]',
+                first_vkontakte_logo: '//*[@id="fbloginblock-beforeauthpage"]/a[16]'
             },
 
             Facebook: {
